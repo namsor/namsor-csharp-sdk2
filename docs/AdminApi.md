@@ -9,8 +9,8 @@ Method | HTTP request | Description
 [**ApiUsage**](AdminApi.md#apiusage) | **GET** /api2/json/apiUsage | Print current API usage.
 [**ApiUsageHistory**](AdminApi.md#apiusagehistory) | **GET** /api2/json/apiUsageHistory | Print historical API usage.
 [**ApiUsageHistoryAggregate**](AdminApi.md#apiusagehistoryaggregate) | **GET** /api2/json/apiUsageHistoryAggregate | Print historical API usage (in an aggregated view, by service, by day/hour/min).
-[**AvailablePlans**](AdminApi.md#availableplans) | **GET** /api2/json/availablePlans/{token} | List all available plans in the user&#39;s preferred currency.
-[**AvailablePlans1**](AdminApi.md#availableplans1) | **GET** /api2/json/availablePlans | List all available plans in the default currency (usd).
+[**AvailablePlans**](AdminApi.md#availableplans) | **GET** /api2/json/availablePlans | List all available plans in the default currency (usd).
+[**AvailablePlans1**](AdminApi.md#availableplans1) | **GET** /api2/json/availablePlans/{token} | List all available plans in the user&#39;s preferred currency.
 [**AvailableServices**](AdminApi.md#availableservices) | **GET** /api2/json/apiServices | List of API services and usage cost in Units (default is 1&#x3D;ONE Unit).
 [**BillingCurrencies**](AdminApi.md#billingcurrencies) | **GET** /api2/json/billingCurrencies | List possible currency options for billing (USD, EUR, GBP, ...)
 [**BillingHistory**](AdminApi.md#billinghistory) | **GET** /api2/json/billingHistory/{token} | Read the history billing information (invoices paid via Stripe or manually).
@@ -359,9 +359,9 @@ This endpoint does not need any parameter.
 
 <a name="availableplans"></a>
 # **AvailablePlans**
-> APIPlansOut AvailablePlans (string token)
+> APIPlansOut AvailablePlans ()
 
-List all available plans in the user's preferred currency.
+List all available plans in the default currency (usd).
 
 ### Example
 ```csharp
@@ -383,12 +383,11 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("X-API-KEY", "Bearer");
 
             var apiInstance = new AdminApi();
-            var token = token_example;  // string | 
 
             try
             {
-                // List all available plans in the user's preferred currency.
-                APIPlansOut result = apiInstance.AvailablePlans(token);
+                // List all available plans in the default currency (usd).
+                APIPlansOut result = apiInstance.AvailablePlans();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -401,10 +400,7 @@ namespace Example
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **token** | **string**|  | 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -423,9 +419,9 @@ Name | Type | Description  | Notes
 
 <a name="availableplans1"></a>
 # **AvailablePlans1**
-> APIPlansOut AvailablePlans1 ()
+> APIPlansOut AvailablePlans1 (string token)
 
-List all available plans in the default currency (usd).
+List all available plans in the user's preferred currency.
 
 ### Example
 ```csharp
@@ -447,11 +443,12 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("X-API-KEY", "Bearer");
 
             var apiInstance = new AdminApi();
+            var token = token_example;  // string | 
 
             try
             {
-                // List all available plans in the default currency (usd).
-                APIPlansOut result = apiInstance.AvailablePlans1();
+                // List all available plans in the user's preferred currency.
+                APIPlansOut result = apiInstance.AvailablePlans1(token);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -464,7 +461,10 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **token** | **string**|  | 
 
 ### Return type
 
