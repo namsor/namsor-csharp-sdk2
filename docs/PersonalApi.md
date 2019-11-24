@@ -422,7 +422,7 @@ Name | Type | Description  | Notes
 
 <a name="genderfull"></a>
 # **GenderFull**
-> FirstLastNameGenderedOut GenderFull (string fullName)
+> PersonalNameGenderedOut GenderFull (string fullName)
 
 Infer the likely gender of a full name, ex. John H. Smith
 
@@ -451,7 +451,7 @@ namespace Example
             try
             {
                 // Infer the likely gender of a full name, ex. John H. Smith
-                FirstLastNameGenderedOut result = apiInstance.GenderFull(fullName);
+                PersonalNameGenderedOut result = apiInstance.GenderFull(fullName);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -471,7 +471,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FirstLastNameGenderedOut**](FirstLastNameGenderedOut.md)
+[**PersonalNameGenderedOut**](PersonalNameGenderedOut.md)
 
 ### Authorization
 
@@ -550,7 +550,7 @@ Name | Type | Description  | Notes
 
 <a name="genderfullgeo"></a>
 # **GenderFullGeo**
-> FirstLastNameGenderedOut GenderFullGeo (string fullName, string countryIso2)
+> PersonalNameGenderedOut GenderFullGeo (string fullName, string countryIso2)
 
 Infer the likely gender of a full name, given a local context (ISO2 country code).
 
@@ -580,7 +580,7 @@ namespace Example
             try
             {
                 // Infer the likely gender of a full name, given a local context (ISO2 country code).
-                FirstLastNameGenderedOut result = apiInstance.GenderFullGeo(fullName, countryIso2);
+                PersonalNameGenderedOut result = apiInstance.GenderFullGeo(fullName, countryIso2);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -601,7 +601,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FirstLastNameGenderedOut**](FirstLastNameGenderedOut.md)
+[**PersonalNameGenderedOut**](PersonalNameGenderedOut.md)
 
 ### Authorization
 

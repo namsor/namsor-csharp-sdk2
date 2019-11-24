@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **RegionOrigin** | **string** | Most likely region of Origin (based on countryOrigin ISO2 code) | [optional] 
 **TopRegionOrigin** | **string** | Most likely region of Origin (based on countryOrigin ISO2 code) | [optional] 
 **SubRegionOrigin** | **string** | Most likely region of Origin (based on countryOrigin ISO2 code) | [optional] 
+**ProbabilityCalibrated** | **double?** |  | [optional] 
+**ProbabilityAltCalibrated** | **double?** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

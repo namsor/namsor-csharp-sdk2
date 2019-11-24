@@ -6,11 +6,12 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AddCredits**](AdminApi.md#addcredits) | **GET** /api2/json/addCredits/{apiKey}/{usageCredits}/{userMessage} | Add usage credits to an API Key.
 [**Anonymize**](AdminApi.md#anonymize) | **GET** /api2/json/anonymize/{source}/{anonymized} | Activate/deactivate anonymization for a source.
+[**ApiStatus**](AdminApi.md#apistatus) | **GET** /api2/json/apiStatus | Prints the current status of the classifiers.
 [**ApiUsage**](AdminApi.md#apiusage) | **GET** /api2/json/apiUsage | Print current API usage.
 [**ApiUsageHistory**](AdminApi.md#apiusagehistory) | **GET** /api2/json/apiUsageHistory | Print historical API usage.
 [**ApiUsageHistoryAggregate**](AdminApi.md#apiusagehistoryaggregate) | **GET** /api2/json/apiUsageHistoryAggregate | Print historical API usage (in an aggregated view, by service, by day/hour/min).
-[**AvailablePlans**](AdminApi.md#availableplans) | **GET** /api2/json/availablePlans | List all available plans in the default currency (usd).
-[**AvailablePlans1**](AdminApi.md#availableplans1) | **GET** /api2/json/availablePlans/{token} | List all available plans in the user&#39;s preferred currency.
+[**AvailablePlans**](AdminApi.md#availableplans) | **GET** /api2/json/availablePlans/{token} | List all available plans in the user&#39;s preferred currency.
+[**AvailablePlans1**](AdminApi.md#availableplans1) | **GET** /api2/json/availablePlans | List all available plans in the default currency (usd).
 [**AvailableServices**](AdminApi.md#availableservices) | **GET** /api2/json/apiServices | List of API services and usage cost in Units (default is 1&#x3D;ONE Unit).
 [**BillingCurrencies**](AdminApi.md#billingcurrencies) | **GET** /api2/json/billingCurrencies | List possible currency options for billing (USD, EUR, GBP, ...)
 [**BillingHistory**](AdminApi.md#billinghistory) | **GET** /api2/json/billingHistory/{token} | Read the history billing information (invoices paid via Stripe or manually).
@@ -35,6 +36,7 @@ Method | HTTP request | Description
 [**StripeConnect**](AdminApi.md#stripeconnect) | **GET** /api2/json/stripeConnect | Connects a Stripe Account.
 [**SubscribePlan**](AdminApi.md#subscribeplan) | **GET** /api2/json/subscribePlan/{planName}/{token} | Subscribe to a give API plan, using the user&#39;s preferred or default currency.
 [**SubscribePlanOnBehalf**](AdminApi.md#subscribeplanonbehalf) | **GET** /api2/json/subscribePlanOnBehalf/{planName}/{apiKey} | Subscribe to a give API plan, using the user&#39;s preferred or default currency (admin only).
+[**TaxonomyClasses**](AdminApi.md#taxonomyclasses) | **GET** /api2/json/taxonomyClasses/{classifierName} | Print the taxonomy classes valid for the given classifier.
 [**UpdateBillingInfo**](AdminApi.md#updatebillinginfo) | **POST** /api2/json/updateBillingInfo/{token} | Sets or update the billing information (company name, address, phone, vat ID)
 [**UpdateLimit**](AdminApi.md#updatelimit) | **GET** /api2/json/updateLimit/{usageLimit}/{hardOrSoft}/{token} | Modifies the hard/soft limit on the API plan&#39;s overages (default is 0$ soft limit).
 [**UpdatePaymentDefault**](AdminApi.md#updatepaymentdefault) | **GET** /api2/json/updatePaymentDefault/{defautSourceId}/{token} | Update the default Stripe card associated with the current google auth session token.
@@ -174,6 +176,66 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="apistatus"></a>
+# **ApiStatus**
+> APIPlansOut ApiStatus ()
+
+Prints the current status of the classifiers.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using Org.OpenAPITools.com.namsor.sdk2.api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.com.namsor.sdk2.model;
+
+namespace Example
+{
+    public class ApiStatusExample
+    {
+        public void main()
+        {
+            // Configure API key authorization: api_key
+            Configuration.Default.AddApiKey("X-API-KEY", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("X-API-KEY", "Bearer");
+
+            var apiInstance = new AdminApi();
+
+            try
+            {
+                // Prints the current status of the classifiers.
+                APIPlansOut result = apiInstance.ApiStatus();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling AdminApi.ApiStatus: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**APIPlansOut**](APIPlansOut.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -359,9 +421,9 @@ This endpoint does not need any parameter.
 
 <a name="availableplans"></a>
 # **AvailablePlans**
-> APIPlansOut AvailablePlans ()
+> APIPlansOut AvailablePlans (string token)
 
-List all available plans in the default currency (usd).
+List all available plans in the user's preferred currency.
 
 ### Example
 ```csharp
@@ -383,11 +445,12 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("X-API-KEY", "Bearer");
 
             var apiInstance = new AdminApi();
+            var token = token_example;  // string | 
 
             try
             {
-                // List all available plans in the default currency (usd).
-                APIPlansOut result = apiInstance.AvailablePlans();
+                // List all available plans in the user's preferred currency.
+                APIPlansOut result = apiInstance.AvailablePlans(token);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -400,7 +463,10 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **token** | **string**|  | 
 
 ### Return type
 
@@ -419,9 +485,9 @@ This endpoint does not need any parameter.
 
 <a name="availableplans1"></a>
 # **AvailablePlans1**
-> APIPlansOut AvailablePlans1 (string token)
+> APIPlansOut AvailablePlans1 ()
 
-List all available plans in the user's preferred currency.
+List all available plans in the default currency (usd).
 
 ### Example
 ```csharp
@@ -443,12 +509,11 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("X-API-KEY", "Bearer");
 
             var apiInstance = new AdminApi();
-            var token = token_example;  // string | 
 
             try
             {
-                // List all available plans in the user's preferred currency.
-                APIPlansOut result = apiInstance.AvailablePlans1(token);
+                // List all available plans in the default currency (usd).
+                APIPlansOut result = apiInstance.AvailablePlans1();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -461,10 +526,7 @@ namespace Example
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **token** | **string**|  | 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -1976,6 +2038,70 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**APIPlanSubscriptionOut**](APIPlanSubscriptionOut.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="taxonomyclasses"></a>
+# **TaxonomyClasses**
+> APIPlansOut TaxonomyClasses (string classifierName)
+
+Print the taxonomy classes valid for the given classifier.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using Org.OpenAPITools.com.namsor.sdk2.api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.com.namsor.sdk2.model;
+
+namespace Example
+{
+    public class TaxonomyClassesExample
+    {
+        public void main()
+        {
+            // Configure API key authorization: api_key
+            Configuration.Default.AddApiKey("X-API-KEY", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("X-API-KEY", "Bearer");
+
+            var apiInstance = new AdminApi();
+            var classifierName = classifierName_example;  // string | 
+
+            try
+            {
+                // Print the taxonomy classes valid for the given classifier.
+                APIPlansOut result = apiInstance.TaxonomyClasses(classifierName);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling AdminApi.TaxonomyClasses: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **classifierName** | **string**|  | 
+
+### Return type
+
+[**APIPlansOut**](APIPlansOut.md)
 
 ### Authorization
 
