@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CacheMetrics** | [**List&lt;CacheMetricsOut&gt;**](CacheMetricsOut.md) |  | [optional] 
 **ClassifierMetrics** | [**List&lt;ClassifierMetricsOut&gt;**](ClassifierMetricsOut.md) |  | [optional] 
 **SourceMetrics** | [**List&lt;SourceMetricsOut&gt;**](SourceMetricsOut.md) |  | [optional] 
 **TotalMem** | **long?** |  | [optional] 

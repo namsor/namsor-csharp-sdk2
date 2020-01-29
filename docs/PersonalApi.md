@@ -4,10 +4,10 @@ All URIs are relative to *https://v2.namsor.com/NamSorAPIv2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Country**](PersonalApi.md#country) | **GET** /api2/json/country/{personalNameFull} | [USES 10 UNITS] Infer the likely country of residence of a personal full name, or one surname. Assumes names as they are in the country of residence OR the country of origin.
-[**CountryBatch**](PersonalApi.md#countrybatch) | **POST** /api2/json/countryBatch | [USES 10 UNITS] Infer the likely country of residence of up to 100 personal full names, or surnames. Assumes names as they are in the country of residence OR the country of origin.
-[**Diaspora**](PersonalApi.md#diaspora) | **GET** /api2/json/diaspora/{countryIso2}/{firstName}/{lastName} | [USES 20 UNITS] Infer the likely ethnicity/diaspora of a personal name, given a country of residence ISO2 code (ex. US, CA, AU, NZ etc.)
-[**DiasporaBatch**](PersonalApi.md#diasporabatch) | **POST** /api2/json/diasporaBatch | [USES 20 UNITS] Infer the likely ethnicity/diaspora of up to 100 personal names, given a country of residence ISO2 code (ex. US, CA, AU, NZ etc.)
+[**Country**](PersonalApi.md#country) | **GET** /api2/json/country/{personalNameFull} | [USES 10 UNITS PER NAME] Infer the likely country of residence of a personal full name, or one surname. Assumes names as they are in the country of residence OR the country of origin.
+[**CountryBatch**](PersonalApi.md#countrybatch) | **POST** /api2/json/countryBatch | [USES 10 UNITS PER NAME] Infer the likely country of residence of up to 100 personal full names, or surnames. Assumes names as they are in the country of residence OR the country of origin.
+[**Diaspora**](PersonalApi.md#diaspora) | **GET** /api2/json/diaspora/{countryIso2}/{firstName}/{lastName} | [USES 20 UNITS PER NAME] Infer the likely ethnicity/diaspora of a personal name, given a country of residence ISO2 code (ex. US, CA, AU, NZ etc.)
+[**DiasporaBatch**](PersonalApi.md#diasporabatch) | **POST** /api2/json/diasporaBatch | [USES 20 UNITS PER NAME] Infer the likely ethnicity/diaspora of up to 100 personal names, given a country of residence ISO2 code (ex. US, CA, AU, NZ etc.)
 [**Gender**](PersonalApi.md#gender) | **GET** /api2/json/gender/{firstName}/{lastName} | Infer the likely gender of a name.
 [**GenderBatch**](PersonalApi.md#genderbatch) | **POST** /api2/json/genderBatch | Infer the likely gender of up to 100 names, detecting automatically the cultural context.
 [**GenderFull**](PersonalApi.md#genderfull) | **GET** /api2/json/genderFull/{fullName} | Infer the likely gender of a full name, ex. John H. Smith
@@ -16,25 +16,25 @@ Method | HTTP request | Description
 [**GenderFullGeoBatch**](PersonalApi.md#genderfullgeobatch) | **POST** /api2/json/genderFullGeoBatch | Infer the likely gender of up to 100 full names, with a given cultural context (country ISO2 code).
 [**GenderGeo**](PersonalApi.md#gendergeo) | **GET** /api2/json/genderGeo/{firstName}/{lastName}/{countryIso2} | Infer the likely gender of a name, given a local context (ISO2 country code).
 [**GenderGeoBatch**](PersonalApi.md#gendergeobatch) | **POST** /api2/json/genderGeoBatch | Infer the likely gender of up to 100 names, each given a local context (ISO2 country code).
-[**Origin**](PersonalApi.md#origin) | **GET** /api2/json/origin/{firstName}/{lastName} | [USES 10 UNITS] Infer the likely country of origin of a personal name. Assumes names as they are in the country of origin. For US, CA, AU, NZ and other melting-pots : use &#39;diaspora&#39; instead.
-[**OriginBatch**](PersonalApi.md#originbatch) | **POST** /api2/json/originBatch | [USES 10 UNITS] Infer the likely country of origin of up to 100 names, detecting automatically the cultural context.
+[**Origin**](PersonalApi.md#origin) | **GET** /api2/json/origin/{firstName}/{lastName} | [USES 10 UNITS PER NAME] Infer the likely country of origin of a personal name. Assumes names as they are in the country of origin. For US, CA, AU, NZ and other melting-pots : use &#39;diaspora&#39; instead.
+[**OriginBatch**](PersonalApi.md#originbatch) | **POST** /api2/json/originBatch | [USES 10 UNITS PER NAME] Infer the likely country of origin of up to 100 names, detecting automatically the cultural context.
 [**ParseName**](PersonalApi.md#parsename) | **GET** /api2/json/parseName/{nameFull} | Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John. 
 [**ParseNameBatch**](PersonalApi.md#parsenamebatch) | **POST** /api2/json/parseNameBatch | Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John.
 [**ParseNameGeo**](PersonalApi.md#parsenamegeo) | **GET** /api2/json/parseName/{nameFull}/{countryIso2} | Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John. For better accuracy, provide a geographic context.
 [**ParseNameGeoBatch**](PersonalApi.md#parsenamegeobatch) | **POST** /api2/json/parseNameGeoBatch | Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John. Giving a local context improves precision. 
 [**ParsedGenderBatch**](PersonalApi.md#parsedgenderbatch) | **POST** /api2/json/parsedGenderBatch | Infer the likely gender of up to 100 fully parsed names, detecting automatically the cultural context.
 [**ParsedGenderGeoBatch**](PersonalApi.md#parsedgendergeobatch) | **POST** /api2/json/parsedGenderGeoBatch | Infer the likely gender of up to 100 fully parsed names, detecting automatically the cultural context.
-[**UsRaceEthnicity**](PersonalApi.md#usraceethnicity) | **GET** /api2/json/usRaceEthnicity/{firstName}/{lastName} | [USES 10 UNITS] Infer a US resident&#39;s likely race/ethnicity according to US Census taxonomy W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino).
-[**UsRaceEthnicityBatch**](PersonalApi.md#usraceethnicitybatch) | **POST** /api2/json/usRaceEthnicityBatch | [USES 10 UNITS] Infer up-to 100 US resident&#39;s likely race/ethnicity according to US Census taxonomy.
-[**UsRaceEthnicityZIP5**](PersonalApi.md#usraceethnicityzip5) | **GET** /api2/json/usRaceEthnicityZIP5/{firstName}/{lastName}/{zip5Code} | [USES 10 UNITS] Infer a US resident&#39;s likely race/ethnicity according to US Census taxonomy, using (optional) ZIP5 code info. Output is W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino).
-[**UsZipRaceEthnicityBatch**](PersonalApi.md#uszipraceethnicitybatch) | **POST** /api2/json/usZipRaceEthnicityBatch | [USES 10 UNITS] Infer up-to 100 US resident&#39;s likely race/ethnicity according to US Census taxonomy, with (optional) ZIP code.
+[**UsRaceEthnicity**](PersonalApi.md#usraceethnicity) | **GET** /api2/json/usRaceEthnicity/{firstName}/{lastName} | [USES 10 UNITS PER NAME] Infer a US resident&#39;s likely race/ethnicity according to US Census taxonomy W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino).
+[**UsRaceEthnicityBatch**](PersonalApi.md#usraceethnicitybatch) | **POST** /api2/json/usRaceEthnicityBatch | [USES 10 UNITS PER NAME] Infer up-to 100 US resident&#39;s likely race/ethnicity according to US Census taxonomy.
+[**UsRaceEthnicityZIP5**](PersonalApi.md#usraceethnicityzip5) | **GET** /api2/json/usRaceEthnicityZIP5/{firstName}/{lastName}/{zip5Code} | [USES 10 UNITS PER NAME] Infer a US resident&#39;s likely race/ethnicity according to US Census taxonomy, using (optional) ZIP5 code info. Output is W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino).
+[**UsZipRaceEthnicityBatch**](PersonalApi.md#uszipraceethnicitybatch) | **POST** /api2/json/usZipRaceEthnicityBatch | [USES 10 UNITS PER NAME] Infer up-to 100 US resident&#39;s likely race/ethnicity according to US Census taxonomy, with (optional) ZIP code.
 
 
 <a name="country"></a>
 # **Country**
 > PersonalNameGeoOut Country (string personalNameFull)
 
-[USES 10 UNITS] Infer the likely country of residence of a personal full name, or one surname. Assumes names as they are in the country of residence OR the country of origin.
+[USES 10 UNITS PER NAME] Infer the likely country of residence of a personal full name, or one surname. Assumes names as they are in the country of residence OR the country of origin.
 
 ### Example
 ```csharp
@@ -60,7 +60,7 @@ namespace Example
 
             try
             {
-                // [USES 10 UNITS] Infer the likely country of residence of a personal full name, or one surname. Assumes names as they are in the country of residence OR the country of origin.
+                // [USES 10 UNITS PER NAME] Infer the likely country of residence of a personal full name, or one surname. Assumes names as they are in the country of residence OR the country of origin.
                 PersonalNameGeoOut result = apiInstance.Country(personalNameFull);
                 Debug.WriteLine(result);
             }
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 # **CountryBatch**
 > BatchPersonalNameGeoOut CountryBatch (BatchPersonalNameIn batchPersonalNameIn = null)
 
-[USES 10 UNITS] Infer the likely country of residence of up to 100 personal full names, or surnames. Assumes names as they are in the country of residence OR the country of origin.
+[USES 10 UNITS PER NAME] Infer the likely country of residence of up to 100 personal full names, or surnames. Assumes names as they are in the country of residence OR the country of origin.
 
 ### Example
 ```csharp
@@ -124,7 +124,7 @@ namespace Example
 
             try
             {
-                // [USES 10 UNITS] Infer the likely country of residence of up to 100 personal full names, or surnames. Assumes names as they are in the country of residence OR the country of origin.
+                // [USES 10 UNITS PER NAME] Infer the likely country of residence of up to 100 personal full names, or surnames. Assumes names as they are in the country of residence OR the country of origin.
                 BatchPersonalNameGeoOut result = apiInstance.CountryBatch(batchPersonalNameIn);
                 Debug.WriteLine(result);
             }
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 # **Diaspora**
 > FirstLastNameDiasporaedOut Diaspora (string countryIso2, string firstName, string lastName)
 
-[USES 20 UNITS] Infer the likely ethnicity/diaspora of a personal name, given a country of residence ISO2 code (ex. US, CA, AU, NZ etc.)
+[USES 20 UNITS PER NAME] Infer the likely ethnicity/diaspora of a personal name, given a country of residence ISO2 code (ex. US, CA, AU, NZ etc.)
 
 ### Example
 ```csharp
@@ -190,7 +190,7 @@ namespace Example
 
             try
             {
-                // [USES 20 UNITS] Infer the likely ethnicity/diaspora of a personal name, given a country of residence ISO2 code (ex. US, CA, AU, NZ etc.)
+                // [USES 20 UNITS PER NAME] Infer the likely ethnicity/diaspora of a personal name, given a country of residence ISO2 code (ex. US, CA, AU, NZ etc.)
                 FirstLastNameDiasporaedOut result = apiInstance.Diaspora(countryIso2, firstName, lastName);
                 Debug.WriteLine(result);
             }
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 # **DiasporaBatch**
 > BatchFirstLastNameDiasporaedOut DiasporaBatch (BatchFirstLastNameGeoIn batchFirstLastNameGeoIn = null)
 
-[USES 20 UNITS] Infer the likely ethnicity/diaspora of up to 100 personal names, given a country of residence ISO2 code (ex. US, CA, AU, NZ etc.)
+[USES 20 UNITS PER NAME] Infer the likely ethnicity/diaspora of up to 100 personal names, given a country of residence ISO2 code (ex. US, CA, AU, NZ etc.)
 
 ### Example
 ```csharp
@@ -256,7 +256,7 @@ namespace Example
 
             try
             {
-                // [USES 20 UNITS] Infer the likely ethnicity/diaspora of up to 100 personal names, given a country of residence ISO2 code (ex. US, CA, AU, NZ etc.)
+                // [USES 20 UNITS PER NAME] Infer the likely ethnicity/diaspora of up to 100 personal names, given a country of residence ISO2 code (ex. US, CA, AU, NZ etc.)
                 BatchFirstLastNameDiasporaedOut result = apiInstance.DiasporaBatch(batchFirstLastNameGeoIn);
                 Debug.WriteLine(result);
             }
@@ -814,7 +814,7 @@ Name | Type | Description  | Notes
 # **Origin**
 > FirstLastNameOriginedOut Origin (string firstName, string lastName)
 
-[USES 10 UNITS] Infer the likely country of origin of a personal name. Assumes names as they are in the country of origin. For US, CA, AU, NZ and other melting-pots : use 'diaspora' instead.
+[USES 10 UNITS PER NAME] Infer the likely country of origin of a personal name. Assumes names as they are in the country of origin. For US, CA, AU, NZ and other melting-pots : use 'diaspora' instead.
 
 ### Example
 ```csharp
@@ -841,7 +841,7 @@ namespace Example
 
             try
             {
-                // [USES 10 UNITS] Infer the likely country of origin of a personal name. Assumes names as they are in the country of origin. For US, CA, AU, NZ and other melting-pots : use 'diaspora' instead.
+                // [USES 10 UNITS PER NAME] Infer the likely country of origin of a personal name. Assumes names as they are in the country of origin. For US, CA, AU, NZ and other melting-pots : use 'diaspora' instead.
                 FirstLastNameOriginedOut result = apiInstance.Origin(firstName, lastName);
                 Debug.WriteLine(result);
             }
@@ -880,7 +880,7 @@ Name | Type | Description  | Notes
 # **OriginBatch**
 > BatchFirstLastNameOriginedOut OriginBatch (BatchFirstLastNameIn batchFirstLastNameIn = null)
 
-[USES 10 UNITS] Infer the likely country of origin of up to 100 names, detecting automatically the cultural context.
+[USES 10 UNITS PER NAME] Infer the likely country of origin of up to 100 names, detecting automatically the cultural context.
 
 ### Example
 ```csharp
@@ -906,7 +906,7 @@ namespace Example
 
             try
             {
-                // [USES 10 UNITS] Infer the likely country of origin of up to 100 names, detecting automatically the cultural context.
+                // [USES 10 UNITS PER NAME] Infer the likely country of origin of up to 100 names, detecting automatically the cultural context.
                 BatchFirstLastNameOriginedOut result = apiInstance.OriginBatch(batchFirstLastNameIn);
                 Debug.WriteLine(result);
             }
@@ -1330,7 +1330,7 @@ Name | Type | Description  | Notes
 # **UsRaceEthnicity**
 > FirstLastNameUSRaceEthnicityOut UsRaceEthnicity (string firstName, string lastName)
 
-[USES 10 UNITS] Infer a US resident's likely race/ethnicity according to US Census taxonomy W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino).
+[USES 10 UNITS PER NAME] Infer a US resident's likely race/ethnicity according to US Census taxonomy W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino).
 
 ### Example
 ```csharp
@@ -1357,7 +1357,7 @@ namespace Example
 
             try
             {
-                // [USES 10 UNITS] Infer a US resident's likely race/ethnicity according to US Census taxonomy W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino).
+                // [USES 10 UNITS PER NAME] Infer a US resident's likely race/ethnicity according to US Census taxonomy W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino).
                 FirstLastNameUSRaceEthnicityOut result = apiInstance.UsRaceEthnicity(firstName, lastName);
                 Debug.WriteLine(result);
             }
@@ -1396,7 +1396,7 @@ Name | Type | Description  | Notes
 # **UsRaceEthnicityBatch**
 > BatchFirstLastNameUSRaceEthnicityOut UsRaceEthnicityBatch (BatchFirstLastNameGeoIn batchFirstLastNameGeoIn = null)
 
-[USES 10 UNITS] Infer up-to 100 US resident's likely race/ethnicity according to US Census taxonomy.
+[USES 10 UNITS PER NAME] Infer up-to 100 US resident's likely race/ethnicity according to US Census taxonomy.
 
 ### Example
 ```csharp
@@ -1422,7 +1422,7 @@ namespace Example
 
             try
             {
-                // [USES 10 UNITS] Infer up-to 100 US resident's likely race/ethnicity according to US Census taxonomy.
+                // [USES 10 UNITS PER NAME] Infer up-to 100 US resident's likely race/ethnicity according to US Census taxonomy.
                 BatchFirstLastNameUSRaceEthnicityOut result = apiInstance.UsRaceEthnicityBatch(batchFirstLastNameGeoIn);
                 Debug.WriteLine(result);
             }
@@ -1460,7 +1460,7 @@ Name | Type | Description  | Notes
 # **UsRaceEthnicityZIP5**
 > FirstLastNameUSRaceEthnicityOut UsRaceEthnicityZIP5 (string firstName, string lastName, string zip5Code)
 
-[USES 10 UNITS] Infer a US resident's likely race/ethnicity according to US Census taxonomy, using (optional) ZIP5 code info. Output is W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino).
+[USES 10 UNITS PER NAME] Infer a US resident's likely race/ethnicity according to US Census taxonomy, using (optional) ZIP5 code info. Output is W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino).
 
 ### Example
 ```csharp
@@ -1488,7 +1488,7 @@ namespace Example
 
             try
             {
-                // [USES 10 UNITS] Infer a US resident's likely race/ethnicity according to US Census taxonomy, using (optional) ZIP5 code info. Output is W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino).
+                // [USES 10 UNITS PER NAME] Infer a US resident's likely race/ethnicity according to US Census taxonomy, using (optional) ZIP5 code info. Output is W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino).
                 FirstLastNameUSRaceEthnicityOut result = apiInstance.UsRaceEthnicityZIP5(firstName, lastName, zip5Code);
                 Debug.WriteLine(result);
             }
@@ -1528,7 +1528,7 @@ Name | Type | Description  | Notes
 # **UsZipRaceEthnicityBatch**
 > BatchFirstLastNameUSRaceEthnicityOut UsZipRaceEthnicityBatch (BatchFirstLastNameGeoZippedIn batchFirstLastNameGeoZippedIn = null)
 
-[USES 10 UNITS] Infer up-to 100 US resident's likely race/ethnicity according to US Census taxonomy, with (optional) ZIP code.
+[USES 10 UNITS PER NAME] Infer up-to 100 US resident's likely race/ethnicity according to US Census taxonomy, with (optional) ZIP code.
 
 ### Example
 ```csharp
@@ -1554,7 +1554,7 @@ namespace Example
 
             try
             {
-                // [USES 10 UNITS] Infer up-to 100 US resident's likely race/ethnicity according to US Census taxonomy, with (optional) ZIP code.
+                // [USES 10 UNITS PER NAME] Infer up-to 100 US resident's likely race/ethnicity according to US Census taxonomy, with (optional) ZIP code.
                 BatchFirstLastNameUSRaceEthnicityOut result = apiInstance.UsZipRaceEthnicityBatch(batchFirstLastNameGeoZippedIn);
                 Debug.WriteLine(result);
             }

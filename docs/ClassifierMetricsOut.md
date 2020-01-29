@@ -3,6 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**SoftwareVersion** | **string** |  | [optional] 
+**HostAddress** | **string** |  | [optional] 
 **LearnQueueSize** | **int?** |  | [optional] 
 **BufferSize** | **int?** |  | [optional] 
 **PreClassifyQueueSize** | **int?** |  | [optional] 

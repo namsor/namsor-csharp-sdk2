@@ -4,10 +4,10 @@ All URIs are relative to *https://v2.namsor.com/NamSorAPIv2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PhoneCode**](SocialApi.md#phonecode) | **GET** /api2/json/phoneCode/{firstName}/{lastName}/{phoneNumber} | [USES 11 UNITS] Infer the likely country and phone prefix, given a personal name and formatted / unformatted phone number.
-[**PhoneCodeBatch**](SocialApi.md#phonecodebatch) | **POST** /api2/json/phoneCodeBatch | [USES 11 UNITS] Infer the likely country and phone prefix, of up to 100 personal names, detecting automatically the local context given a name and formatted / unformatted phone number.
-[**PhoneCodeGeo**](SocialApi.md#phonecodegeo) | **GET** /api2/json/phoneCodeGeo/{firstName}/{lastName}/{phoneNumber}/{countryIso2} | [USES 11 UNITS] Infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).
-[**PhoneCodeGeoBatch**](SocialApi.md#phonecodegeobatch) | **POST** /api2/json/phoneCodeGeoBatch | [USES 11 UNITS] Infer the likely country and phone prefix, of up to 100 personal names, with a local context (ISO2 country of residence).
+[**PhoneCode**](SocialApi.md#phonecode) | **GET** /api2/json/phoneCode/{firstName}/{lastName}/{phoneNumber} | [USES 11 UNITS PER NAME] Infer the likely country and phone prefix, given a personal name and formatted / unformatted phone number.
+[**PhoneCodeBatch**](SocialApi.md#phonecodebatch) | **POST** /api2/json/phoneCodeBatch | [USES 11 UNITS PER NAME] Infer the likely country and phone prefix, of up to 100 personal names, detecting automatically the local context given a name and formatted / unformatted phone number.
+[**PhoneCodeGeo**](SocialApi.md#phonecodegeo) | **GET** /api2/json/phoneCodeGeo/{firstName}/{lastName}/{phoneNumber}/{countryIso2} | [USES 11 UNITS PER NAME] Infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).
+[**PhoneCodeGeoBatch**](SocialApi.md#phonecodegeobatch) | **POST** /api2/json/phoneCodeGeoBatch | [USES 11 UNITS PER NAME] Infer the likely country and phone prefix, of up to 100 personal names, with a local context (ISO2 country of residence).
 [**PhoneCodeGeoFeedbackLoop**](SocialApi.md#phonecodegeofeedbackloop) | **GET** /api2/json/phoneCodeGeoFeedbackLoop/{firstName}/{lastName}/{phoneNumber}/{phoneNumberE164}/{countryIso2} | [CREDITS 1 UNIT] Feedback loop to better infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).
 
 
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 # **PhoneCode**
 > FirstLastNamePhoneCodedOut PhoneCode (string firstName, string lastName, string phoneNumber)
 
-[USES 11 UNITS] Infer the likely country and phone prefix, given a personal name and formatted / unformatted phone number.
+[USES 11 UNITS PER NAME] Infer the likely country and phone prefix, given a personal name and formatted / unformatted phone number.
 
 ### Example
 ```csharp
@@ -43,7 +43,7 @@ namespace Example
 
             try
             {
-                // [USES 11 UNITS] Infer the likely country and phone prefix, given a personal name and formatted / unformatted phone number.
+                // [USES 11 UNITS PER NAME] Infer the likely country and phone prefix, given a personal name and formatted / unformatted phone number.
                 FirstLastNamePhoneCodedOut result = apiInstance.PhoneCode(firstName, lastName, phoneNumber);
                 Debug.WriteLine(result);
             }
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 # **PhoneCodeBatch**
 > BatchFirstLastNamePhoneCodedOut PhoneCodeBatch (BatchFirstLastNamePhoneNumberIn batchFirstLastNamePhoneNumberIn = null)
 
-[USES 11 UNITS] Infer the likely country and phone prefix, of up to 100 personal names, detecting automatically the local context given a name and formatted / unformatted phone number.
+[USES 11 UNITS PER NAME] Infer the likely country and phone prefix, of up to 100 personal names, detecting automatically the local context given a name and formatted / unformatted phone number.
 
 ### Example
 ```csharp
@@ -109,7 +109,7 @@ namespace Example
 
             try
             {
-                // [USES 11 UNITS] Infer the likely country and phone prefix, of up to 100 personal names, detecting automatically the local context given a name and formatted / unformatted phone number.
+                // [USES 11 UNITS PER NAME] Infer the likely country and phone prefix, of up to 100 personal names, detecting automatically the local context given a name and formatted / unformatted phone number.
                 BatchFirstLastNamePhoneCodedOut result = apiInstance.PhoneCodeBatch(batchFirstLastNamePhoneNumberIn);
                 Debug.WriteLine(result);
             }
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 # **PhoneCodeGeo**
 > FirstLastNamePhoneCodedOut PhoneCodeGeo (string firstName, string lastName, string phoneNumber, string countryIso2)
 
-[USES 11 UNITS] Infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).
+[USES 11 UNITS PER NAME] Infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).
 
 ### Example
 ```csharp
@@ -176,7 +176,7 @@ namespace Example
 
             try
             {
-                // [USES 11 UNITS] Infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).
+                // [USES 11 UNITS PER NAME] Infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).
                 FirstLastNamePhoneCodedOut result = apiInstance.PhoneCodeGeo(firstName, lastName, phoneNumber, countryIso2);
                 Debug.WriteLine(result);
             }
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 # **PhoneCodeGeoBatch**
 > BatchFirstLastNamePhoneCodedOut PhoneCodeGeoBatch (BatchFirstLastNamePhoneNumberGeoIn batchFirstLastNamePhoneNumberGeoIn = null)
 
-[USES 11 UNITS] Infer the likely country and phone prefix, of up to 100 personal names, with a local context (ISO2 country of residence).
+[USES 11 UNITS PER NAME] Infer the likely country and phone prefix, of up to 100 personal names, with a local context (ISO2 country of residence).
 
 ### Example
 ```csharp
@@ -243,7 +243,7 @@ namespace Example
 
             try
             {
-                // [USES 11 UNITS] Infer the likely country and phone prefix, of up to 100 personal names, with a local context (ISO2 country of residence).
+                // [USES 11 UNITS PER NAME] Infer the likely country and phone prefix, of up to 100 personal names, with a local context (ISO2 country of residence).
                 BatchFirstLastNamePhoneCodedOut result = apiInstance.PhoneCodeGeoBatch(batchFirstLastNamePhoneNumberGeoIn);
                 Debug.WriteLine(result);
             }

@@ -25,25 +25,33 @@ using OpenAPIDateConverter = Org.OpenAPITools.Client.OpenAPIDateConverter;
 namespace Org.OpenAPITools.com.namsor.sdk2.model
 {
     /// <summary>
-    /// Represents the output of inferring the LIKELY gender from a list of personal names.
+    /// Simple metrics system caches
     /// </summary>
     [DataContract]
-    public partial class BatchFirstLastNameGenderedOut :  IEquatable<BatchFirstLastNameGenderedOut>, IValidatableObject
+    public partial class CacheMetricsOut :  IEquatable<CacheMetricsOut>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="BatchFirstLastNameGenderedOut" /> class.
+        /// Initializes a new instance of the <see cref="CacheMetricsOut" /> class.
         /// </summary>
-        /// <param name="personalNames">personalNames.</param>
-        public BatchFirstLastNameGenderedOut(List<FirstLastNameGenderedOut> personalNames = default(List<FirstLastNameGenderedOut>))
+        /// <param name="cacheName">cacheName.</param>
+        /// <param name="cacheStats">cacheStats.</param>
+        public CacheMetricsOut(string cacheName = default(string), string cacheStats = default(string))
         {
-            this.PersonalNames = personalNames;
+            this.CacheName = cacheName;
+            this.CacheStats = cacheStats;
         }
         
         /// <summary>
-        /// Gets or Sets PersonalNames
+        /// Gets or Sets CacheName
         /// </summary>
-        [DataMember(Name="personalNames", EmitDefaultValue=false)]
-        public List<FirstLastNameGenderedOut> PersonalNames { get; set; }
+        [DataMember(Name="cacheName", EmitDefaultValue=false)]
+        public string CacheName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CacheStats
+        /// </summary>
+        [DataMember(Name="cacheStats", EmitDefaultValue=false)]
+        public string CacheStats { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,8 +60,9 @@ namespace Org.OpenAPITools.com.namsor.sdk2.model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class BatchFirstLastNameGenderedOut {\n");
-            sb.Append("  PersonalNames: ").Append(PersonalNames).Append("\n");
+            sb.Append("class CacheMetricsOut {\n");
+            sb.Append("  CacheName: ").Append(CacheName).Append("\n");
+            sb.Append("  CacheStats: ").Append(CacheStats).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -74,24 +83,29 @@ namespace Org.OpenAPITools.com.namsor.sdk2.model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as BatchFirstLastNameGenderedOut);
+            return this.Equals(input as CacheMetricsOut);
         }
 
         /// <summary>
-        /// Returns true if BatchFirstLastNameGenderedOut instances are equal
+        /// Returns true if CacheMetricsOut instances are equal
         /// </summary>
-        /// <param name="input">Instance of BatchFirstLastNameGenderedOut to be compared</param>
+        /// <param name="input">Instance of CacheMetricsOut to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(BatchFirstLastNameGenderedOut input)
+        public bool Equals(CacheMetricsOut input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.PersonalNames == input.PersonalNames ||
-                    this.PersonalNames != null &&
-                    this.PersonalNames.SequenceEqual(input.PersonalNames)
+                    this.CacheName == input.CacheName ||
+                    (this.CacheName != null &&
+                    this.CacheName.Equals(input.CacheName))
+                ) && 
+                (
+                    this.CacheStats == input.CacheStats ||
+                    (this.CacheStats != null &&
+                    this.CacheStats.Equals(input.CacheStats))
                 );
         }
 
@@ -104,8 +118,10 @@ namespace Org.OpenAPITools.com.namsor.sdk2.model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.PersonalNames != null)
-                    hashCode = hashCode * 59 + this.PersonalNames.GetHashCode();
+                if (this.CacheName != null)
+                    hashCode = hashCode * 59 + this.CacheName.GetHashCode();
+                if (this.CacheStats != null)
+                    hashCode = hashCode * 59 + this.CacheStats.GetHashCode();
                 return hashCode;
             }
         }
