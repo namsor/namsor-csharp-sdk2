@@ -21,212 +21,76 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IChineseApi : IApiAccessor
+    public interface IJapaneseApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name ex. Wang Xiaoming
+        /// Infer the likely gender of a Japanese full name ex. 王晓明
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
-        /// <returns>RomanizedNameOut</returns>
-        RomanizedNameOut ChineseNameCandidates (string chineseSurnameLatin, string chineseGivenNameLatin);
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name ex. Wang Xiaoming
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
-        /// <returns>ApiResponse of RomanizedNameOut</returns>
-        ApiResponse<RomanizedNameOut> ChineseNameCandidatesWithHttpInfo (string chineseSurnameLatin, string chineseGivenNameLatin);
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name (firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname), ex. Wang Xiaoming
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchFirstLastNameIn">A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname (optional)</param>
-        /// <returns>BatchNameMatchCandidatesOut</returns>
-        BatchNameMatchCandidatesOut ChineseNameCandidatesBatch (BatchFirstLastNameIn batchFirstLastNameIn = null);
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name (firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname), ex. Wang Xiaoming
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchFirstLastNameIn">A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname (optional)</param>
-        /// <returns>ApiResponse of BatchNameMatchCandidatesOut</returns>
-        ApiResponse<BatchNameMatchCandidatesOut> ChineseNameCandidatesBatchWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null);
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name (firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname) ex. Wang Xiaoming.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchFirstLastNameIn">A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname (optional)</param>
-        /// <returns>BatchNameMatchCandidatesOut</returns>
-        BatchNameMatchCandidatesOut ChineseNameCandidatesGenderBatch (BatchFirstLastNameIn batchFirstLastNameIn = null);
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name (firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname) ex. Wang Xiaoming.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchFirstLastNameIn">A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname (optional)</param>
-        /// <returns>ApiResponse of BatchNameMatchCandidatesOut</returns>
-        ApiResponse<BatchNameMatchCandidatesOut> ChineseNameCandidatesGenderBatchWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null);
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name ex. Wang Xiaoming - having a known gender (&#39;male&#39; or &#39;female&#39;)
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
-        /// <param name="knownGender"></param>
-        /// <returns>RomanizedNameOut</returns>
-        RomanizedNameOut ChineseNameGenderCandidates (string chineseSurnameLatin, string chineseGivenNameLatin, string knownGender);
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name ex. Wang Xiaoming - having a known gender (&#39;male&#39; or &#39;female&#39;)
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
-        /// <param name="knownGender"></param>
-        /// <returns>ApiResponse of RomanizedNameOut</returns>
-        ApiResponse<RomanizedNameOut> ChineseNameGenderCandidatesWithHttpInfo (string chineseSurnameLatin, string chineseGivenNameLatin, string knownGender);
-        /// <summary>
-        /// Return a score for matching Chinese name ex. 王晓明 with a romanized name ex. Wang Xiaoming
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
-        /// <param name="chineseName"></param>
-        /// <returns>RomanizedNameOut</returns>
-        RomanizedNameOut ChineseNameMatch (string chineseSurnameLatin, string chineseGivenNameLatin, string chineseName);
-
-        /// <summary>
-        /// Return a score for matching Chinese name ex. 王晓明 with a romanized name ex. Wang Xiaoming
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
-        /// <param name="chineseName"></param>
-        /// <returns>ApiResponse of RomanizedNameOut</returns>
-        ApiResponse<RomanizedNameOut> ChineseNameMatchWithHttpInfo (string chineseSurnameLatin, string chineseGivenNameLatin, string chineseName);
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name (firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname), ex. Wang Xiaoming
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchFirstLastNameIn">A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname (optional)</param>
-        /// <returns>BatchNameMatchCandidatesOut</returns>
-        BatchNameMatchCandidatesOut ChineseNameMatchBatch (BatchFirstLastNameIn batchFirstLastNameIn = null);
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name (firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname), ex. Wang Xiaoming
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchFirstLastNameIn">A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname (optional)</param>
-        /// <returns>ApiResponse of BatchNameMatchCandidatesOut</returns>
-        ApiResponse<BatchNameMatchCandidatesOut> ChineseNameMatchBatchWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null);
-        /// <summary>
-        /// Infer the likely gender of a Chinese full name ex. 王晓明
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseName"></param>
+        /// <param name="japaneseName"></param>
         /// <returns>PersonalNameGenderedOut</returns>
-        PersonalNameGenderedOut GenderChineseName (string chineseName);
+        PersonalNameGenderedOut GenderJapaneseNameFull (string japaneseName);
 
         /// <summary>
-        /// Infer the likely gender of a Chinese full name ex. 王晓明
+        /// Infer the likely gender of a Japanese full name ex. 王晓明
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseName"></param>
+        /// <param name="japaneseName"></param>
         /// <returns>ApiResponse of PersonalNameGenderedOut</returns>
-        ApiResponse<PersonalNameGenderedOut> GenderChineseNameWithHttpInfo (string chineseName);
+        ApiResponse<PersonalNameGenderedOut> GenderJapaneseNameFullWithHttpInfo (string japaneseName);
         /// <summary>
-        /// Infer the likely gender of up to 100 full names ex. 王晓明
+        /// Infer the likely gender of up to 100 full names
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchPersonalNameIn">A list of personal names, with a country ISO2 code (optional)</param>
+        /// <param name="batchPersonalNameIn">A list of personal names (optional)</param>
         /// <returns>BatchPersonalNameGenderedOut</returns>
-        BatchPersonalNameGenderedOut GenderChineseNameBatch (BatchPersonalNameIn batchPersonalNameIn = null);
+        BatchPersonalNameGenderedOut GenderJapaneseNameFullBatch (BatchPersonalNameIn batchPersonalNameIn = null);
 
         /// <summary>
-        /// Infer the likely gender of up to 100 full names ex. 王晓明
+        /// Infer the likely gender of up to 100 full names
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchPersonalNameIn">A list of personal names, with a country ISO2 code (optional)</param>
+        /// <param name="batchPersonalNameIn">A list of personal names (optional)</param>
         /// <returns>ApiResponse of BatchPersonalNameGenderedOut</returns>
-        ApiResponse<BatchPersonalNameGenderedOut> GenderChineseNameBatchWithHttpInfo (BatchPersonalNameIn batchPersonalNameIn = null);
+        ApiResponse<BatchPersonalNameGenderedOut> GenderJapaneseNameFullBatchWithHttpInfo (BatchPersonalNameIn batchPersonalNameIn = null);
         /// <summary>
-        /// Infer the likely gender of a Chinese name in LATIN (Pinyin).
+        /// Infer the likely gender of a Japanese name in LATIN (Pinyin).
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
+        /// <param name="japaneseSurname"></param>
+        /// <param name="japaneseGivenName"></param>
         /// <returns>FirstLastNameGenderedOut</returns>
-        FirstLastNameGenderedOut GenderChineseNamePinyin (string chineseSurnameLatin, string chineseGivenNameLatin);
+        FirstLastNameGenderedOut GenderJapaneseNamePinyin (string japaneseSurname, string japaneseGivenName);
 
         /// <summary>
-        /// Infer the likely gender of a Chinese name in LATIN (Pinyin).
+        /// Infer the likely gender of a Japanese name in LATIN (Pinyin).
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
+        /// <param name="japaneseSurname"></param>
+        /// <param name="japaneseGivenName"></param>
         /// <returns>ApiResponse of FirstLastNameGenderedOut</returns>
-        ApiResponse<FirstLastNameGenderedOut> GenderChineseNamePinyinWithHttpInfo (string chineseSurnameLatin, string chineseGivenNameLatin);
+        ApiResponse<FirstLastNameGenderedOut> GenderJapaneseNamePinyinWithHttpInfo (string japaneseSurname, string japaneseGivenName);
         /// <summary>
-        /// Infer the likely gender of up to 100 Chinese names in LATIN (Pinyin).
+        /// Infer the likely gender of up to 100 Japanese names in LATIN (Pinyin).
         /// </summary>
         /// <remarks>
         /// 
@@ -234,10 +98,10 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchFirstLastNameIn">A list of names, with country code. (optional)</param>
         /// <returns>BatchFirstLastNameGenderedOut</returns>
-        BatchFirstLastNameGenderedOut GenderChineseNamePinyinBatch (BatchFirstLastNameIn batchFirstLastNameIn = null);
+        BatchFirstLastNameGenderedOut GenderJapaneseNamePinyinBatch (BatchFirstLastNameIn batchFirstLastNameIn = null);
 
         /// <summary>
-        /// Infer the likely gender of up to 100 Chinese names in LATIN (Pinyin).
+        /// Infer the likely gender of up to 100 Japanese names in LATIN (Pinyin).
         /// </summary>
         /// <remarks>
         /// 
@@ -245,30 +109,189 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchFirstLastNameIn">A list of names, with country code. (optional)</param>
         /// <returns>ApiResponse of BatchFirstLastNameGenderedOut</returns>
-        ApiResponse<BatchFirstLastNameGenderedOut> GenderChineseNamePinyinBatchWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null);
+        ApiResponse<BatchFirstLastNameGenderedOut> GenderJapaneseNamePinyinBatchWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null);
         /// <summary>
-        /// Infer the likely first/last name structure of a name, ex. 王晓明 -&gt; 王(surname) 晓明(given name)
+        /// Identify japanese name candidates in KANJI, based on the romanized name ex. Yamamoto Sanae
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseName"></param>
-        /// <returns>PersonalNameParsedOut</returns>
-        PersonalNameParsedOut ParseChineseName (string chineseName);
+        /// <param name="japaneseSurnameLatin"></param>
+        /// <param name="japaneseGivenNameLatin"></param>
+        /// <returns>RomanizedNameOut</returns>
+        RomanizedNameOut JapaneseNameKanjiCandidates (string japaneseSurnameLatin, string japaneseGivenNameLatin);
 
         /// <summary>
-        /// Infer the likely first/last name structure of a name, ex. 王晓明 -&gt; 王(surname) 晓明(given name)
+        /// Identify japanese name candidates in KANJI, based on the romanized name ex. Yamamoto Sanae
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseName"></param>
-        /// <returns>ApiResponse of PersonalNameParsedOut</returns>
-        ApiResponse<PersonalNameParsedOut> ParseChineseNameWithHttpInfo (string chineseName);
+        /// <param name="japaneseSurnameLatin"></param>
+        /// <param name="japaneseGivenNameLatin"></param>
+        /// <returns>ApiResponse of RomanizedNameOut</returns>
+        ApiResponse<RomanizedNameOut> JapaneseNameKanjiCandidatesWithHttpInfo (string japaneseSurnameLatin, string japaneseGivenNameLatin);
         /// <summary>
-        /// Infer the likely first/last name structure of a name, ex. 王晓明 -&gt; 王(surname) 晓明(given name).
+        /// Identify japanese name candidates in KANJI, based on the romanized name (firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname), ex. Yamamoto Sanae
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchFirstLastNameIn">A list of personal japanese names in LATIN, firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname (optional)</param>
+        /// <returns>BatchNameMatchCandidatesOut</returns>
+        BatchNameMatchCandidatesOut JapaneseNameKanjiCandidatesBatch (BatchFirstLastNameIn batchFirstLastNameIn = null);
+
+        /// <summary>
+        /// Identify japanese name candidates in KANJI, based on the romanized name (firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname), ex. Yamamoto Sanae
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchFirstLastNameIn">A list of personal japanese names in LATIN, firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname (optional)</param>
+        /// <returns>ApiResponse of BatchNameMatchCandidatesOut</returns>
+        ApiResponse<BatchNameMatchCandidatesOut> JapaneseNameKanjiCandidatesBatchWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null);
+        /// <summary>
+        /// Romanize japanese name, based on the name in Kanji.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseSurnameKanji"></param>
+        /// <param name="japaneseGivenNameKanji"></param>
+        /// <returns>RomanizedNameOut</returns>
+        RomanizedNameOut JapaneseNameLatinCandidates (string japaneseSurnameKanji, string japaneseGivenNameKanji);
+
+        /// <summary>
+        /// Romanize japanese name, based on the name in Kanji.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseSurnameKanji"></param>
+        /// <param name="japaneseGivenNameKanji"></param>
+        /// <returns>ApiResponse of RomanizedNameOut</returns>
+        ApiResponse<RomanizedNameOut> JapaneseNameLatinCandidatesWithHttpInfo (string japaneseSurnameKanji, string japaneseGivenNameKanji);
+        /// <summary>
+        /// Romanize japanese names, based on the name in KANJI
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchFirstLastNameIn">A list of personal japanese names in KANJI, firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname (optional)</param>
+        /// <returns>BatchNameMatchCandidatesOut</returns>
+        BatchNameMatchCandidatesOut JapaneseNameLatinCandidatesBatch (BatchFirstLastNameIn batchFirstLastNameIn = null);
+
+        /// <summary>
+        /// Romanize japanese names, based on the name in KANJI
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchFirstLastNameIn">A list of personal japanese names in KANJI, firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname (optional)</param>
+        /// <returns>ApiResponse of BatchNameMatchCandidatesOut</returns>
+        ApiResponse<BatchNameMatchCandidatesOut> JapaneseNameLatinCandidatesBatchWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null);
+        /// <summary>
+        /// Return a score for matching Japanese name in KANJI ex. 山本 早苗 with a romanized name ex. Yamamoto Sanae
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseSurnameLatin"></param>
+        /// <param name="japaneseGivenNameLatin"></param>
+        /// <param name="japaneseName"></param>
+        /// <returns>RomanizedNameOut</returns>
+        RomanizedNameOut JapaneseNameMatch (string japaneseSurnameLatin, string japaneseGivenNameLatin, string japaneseName);
+
+        /// <summary>
+        /// Return a score for matching Japanese name in KANJI ex. 山本 早苗 with a romanized name ex. Yamamoto Sanae
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseSurnameLatin"></param>
+        /// <param name="japaneseGivenNameLatin"></param>
+        /// <param name="japaneseName"></param>
+        /// <returns>ApiResponse of RomanizedNameOut</returns>
+        ApiResponse<RomanizedNameOut> JapaneseNameMatchWithHttpInfo (string japaneseSurnameLatin, string japaneseGivenNameLatin, string japaneseName);
+        /// <summary>
+        /// Return a score for matching a list of Japanese names in KANJI ex. 山本 早苗 with romanized names ex. Yamamoto Sanae
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchFirstLastNameIn">A list of personal Japanese names in LATIN, firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname (optional)</param>
+        /// <returns>BatchNameMatchCandidatesOut</returns>
+        BatchNameMatchCandidatesOut JapaneseNameMatchBatch (BatchFirstLastNameIn batchFirstLastNameIn = null);
+
+        /// <summary>
+        /// Return a score for matching a list of Japanese names in KANJI ex. 山本 早苗 with romanized names ex. Yamamoto Sanae
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchFirstLastNameIn">A list of personal Japanese names in LATIN, firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname (optional)</param>
+        /// <returns>ApiResponse of BatchNameMatchCandidatesOut</returns>
+        ApiResponse<BatchNameMatchCandidatesOut> JapaneseNameMatchBatchWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null);
+        /// <summary>
+        /// [CREDITS 1 UNIT] Feedback loop to better perform matching Japanese name in KANJI ex. 山本 早苗 with a romanized name ex. Yamamoto Sanae
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseSurnameLatin"></param>
+        /// <param name="japaneseGivenNameLatin"></param>
+        /// <param name="japaneseName"></param>
+        /// <returns>RomanizedNameOut</returns>
+        RomanizedNameOut JapaneseNameMatchFeedbackLoop (string japaneseSurnameLatin, string japaneseGivenNameLatin, string japaneseName);
+
+        /// <summary>
+        /// [CREDITS 1 UNIT] Feedback loop to better perform matching Japanese name in KANJI ex. 山本 早苗 with a romanized name ex. Yamamoto Sanae
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseSurnameLatin"></param>
+        /// <param name="japaneseGivenNameLatin"></param>
+        /// <param name="japaneseName"></param>
+        /// <returns>ApiResponse of RomanizedNameOut</returns>
+        ApiResponse<RomanizedNameOut> JapaneseNameMatchFeedbackLoopWithHttpInfo (string japaneseSurnameLatin, string japaneseGivenNameLatin, string japaneseName);
+        /// <summary>
+        /// Infer the likely first/last name structure of a name, ex. 山本 早苗 or Yamamoto Sanae
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseName"></param>
+        /// <returns>PersonalNameParsedOut</returns>
+        PersonalNameParsedOut ParseJapaneseName (string japaneseName);
+
+        /// <summary>
+        /// Infer the likely first/last name structure of a name, ex. 山本 早苗 or Yamamoto Sanae
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseName"></param>
+        /// <returns>ApiResponse of PersonalNameParsedOut</returns>
+        ApiResponse<PersonalNameParsedOut> ParseJapaneseNameWithHttpInfo (string japaneseName);
+        /// <summary>
+        /// Infer the likely first/last name structure of a name, ex. 山本 早苗 or Yamamoto Sanae 
         /// </summary>
         /// <remarks>
         /// 
@@ -276,10 +299,10 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchPersonalNameIn">A list of personal names (optional)</param>
         /// <returns>BatchPersonalNameParsedOut</returns>
-        BatchPersonalNameParsedOut ParseChineseNameBatch (BatchPersonalNameIn batchPersonalNameIn = null);
+        BatchPersonalNameParsedOut ParseJapaneseNameBatch (BatchPersonalNameIn batchPersonalNameIn = null);
 
         /// <summary>
-        /// Infer the likely first/last name structure of a name, ex. 王晓明 -&gt; 王(surname) 晓明(given name).
+        /// Infer the likely first/last name structure of a name, ex. 山本 早苗 or Yamamoto Sanae 
         /// </summary>
         /// <remarks>
         /// 
@@ -287,254 +310,76 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchPersonalNameIn">A list of personal names (optional)</param>
         /// <returns>ApiResponse of BatchPersonalNameParsedOut</returns>
-        ApiResponse<BatchPersonalNameParsedOut> ParseChineseNameBatchWithHttpInfo (BatchPersonalNameIn batchPersonalNameIn = null);
-        /// <summary>
-        /// Romanize the Chinese name to Pinyin, ex. 王晓明 -&gt; Wang (surname) Xiaoming (given name)
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseName"></param>
-        /// <returns>PersonalNameParsedOut</returns>
-        PersonalNameParsedOut PinyinChineseName (string chineseName);
-
-        /// <summary>
-        /// Romanize the Chinese name to Pinyin, ex. 王晓明 -&gt; Wang (surname) Xiaoming (given name)
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseName"></param>
-        /// <returns>ApiResponse of PersonalNameParsedOut</returns>
-        ApiResponse<PersonalNameParsedOut> PinyinChineseNameWithHttpInfo (string chineseName);
-        /// <summary>
-        /// Romanize a list of Chinese name to Pinyin, ex. 王晓明 -&gt; Wang (surname) Xiaoming (given name).
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchPersonalNameIn">A list of Chinese names (optional)</param>
-        /// <returns>BatchPersonalNameParsedOut</returns>
-        BatchPersonalNameParsedOut PinyinChineseNameBatch (BatchPersonalNameIn batchPersonalNameIn = null);
-
-        /// <summary>
-        /// Romanize a list of Chinese name to Pinyin, ex. 王晓明 -&gt; Wang (surname) Xiaoming (given name).
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchPersonalNameIn">A list of Chinese names (optional)</param>
-        /// <returns>ApiResponse of BatchPersonalNameParsedOut</returns>
-        ApiResponse<BatchPersonalNameParsedOut> PinyinChineseNameBatchWithHttpInfo (BatchPersonalNameIn batchPersonalNameIn = null);
+        ApiResponse<BatchPersonalNameParsedOut> ParseJapaneseNameBatchWithHttpInfo (BatchPersonalNameIn batchPersonalNameIn = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name ex. Wang Xiaoming
+        /// Infer the likely gender of a Japanese full name ex. 王晓明
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
-        /// <returns>Task of RomanizedNameOut</returns>
-        System.Threading.Tasks.Task<RomanizedNameOut> ChineseNameCandidatesAsync (string chineseSurnameLatin, string chineseGivenNameLatin);
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name ex. Wang Xiaoming
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
-        /// <returns>Task of ApiResponse (RomanizedNameOut)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RomanizedNameOut>> ChineseNameCandidatesAsyncWithHttpInfo (string chineseSurnameLatin, string chineseGivenNameLatin);
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name (firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname), ex. Wang Xiaoming
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchFirstLastNameIn">A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname (optional)</param>
-        /// <returns>Task of BatchNameMatchCandidatesOut</returns>
-        System.Threading.Tasks.Task<BatchNameMatchCandidatesOut> ChineseNameCandidatesBatchAsync (BatchFirstLastNameIn batchFirstLastNameIn = null);
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name (firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname), ex. Wang Xiaoming
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchFirstLastNameIn">A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname (optional)</param>
-        /// <returns>Task of ApiResponse (BatchNameMatchCandidatesOut)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BatchNameMatchCandidatesOut>> ChineseNameCandidatesBatchAsyncWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null);
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name (firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname) ex. Wang Xiaoming.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchFirstLastNameIn">A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname (optional)</param>
-        /// <returns>Task of BatchNameMatchCandidatesOut</returns>
-        System.Threading.Tasks.Task<BatchNameMatchCandidatesOut> ChineseNameCandidatesGenderBatchAsync (BatchFirstLastNameIn batchFirstLastNameIn = null);
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name (firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname) ex. Wang Xiaoming.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchFirstLastNameIn">A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname (optional)</param>
-        /// <returns>Task of ApiResponse (BatchNameMatchCandidatesOut)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BatchNameMatchCandidatesOut>> ChineseNameCandidatesGenderBatchAsyncWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null);
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name ex. Wang Xiaoming - having a known gender (&#39;male&#39; or &#39;female&#39;)
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
-        /// <param name="knownGender"></param>
-        /// <returns>Task of RomanizedNameOut</returns>
-        System.Threading.Tasks.Task<RomanizedNameOut> ChineseNameGenderCandidatesAsync (string chineseSurnameLatin, string chineseGivenNameLatin, string knownGender);
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name ex. Wang Xiaoming - having a known gender (&#39;male&#39; or &#39;female&#39;)
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
-        /// <param name="knownGender"></param>
-        /// <returns>Task of ApiResponse (RomanizedNameOut)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RomanizedNameOut>> ChineseNameGenderCandidatesAsyncWithHttpInfo (string chineseSurnameLatin, string chineseGivenNameLatin, string knownGender);
-        /// <summary>
-        /// Return a score for matching Chinese name ex. 王晓明 with a romanized name ex. Wang Xiaoming
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
-        /// <param name="chineseName"></param>
-        /// <returns>Task of RomanizedNameOut</returns>
-        System.Threading.Tasks.Task<RomanizedNameOut> ChineseNameMatchAsync (string chineseSurnameLatin, string chineseGivenNameLatin, string chineseName);
-
-        /// <summary>
-        /// Return a score for matching Chinese name ex. 王晓明 with a romanized name ex. Wang Xiaoming
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
-        /// <param name="chineseName"></param>
-        /// <returns>Task of ApiResponse (RomanizedNameOut)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RomanizedNameOut>> ChineseNameMatchAsyncWithHttpInfo (string chineseSurnameLatin, string chineseGivenNameLatin, string chineseName);
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name (firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname), ex. Wang Xiaoming
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchFirstLastNameIn">A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname (optional)</param>
-        /// <returns>Task of BatchNameMatchCandidatesOut</returns>
-        System.Threading.Tasks.Task<BatchNameMatchCandidatesOut> ChineseNameMatchBatchAsync (BatchFirstLastNameIn batchFirstLastNameIn = null);
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name (firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname), ex. Wang Xiaoming
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchFirstLastNameIn">A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname (optional)</param>
-        /// <returns>Task of ApiResponse (BatchNameMatchCandidatesOut)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BatchNameMatchCandidatesOut>> ChineseNameMatchBatchAsyncWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null);
-        /// <summary>
-        /// Infer the likely gender of a Chinese full name ex. 王晓明
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseName"></param>
+        /// <param name="japaneseName"></param>
         /// <returns>Task of PersonalNameGenderedOut</returns>
-        System.Threading.Tasks.Task<PersonalNameGenderedOut> GenderChineseNameAsync (string chineseName);
+        System.Threading.Tasks.Task<PersonalNameGenderedOut> GenderJapaneseNameFullAsync (string japaneseName);
 
         /// <summary>
-        /// Infer the likely gender of a Chinese full name ex. 王晓明
+        /// Infer the likely gender of a Japanese full name ex. 王晓明
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseName"></param>
+        /// <param name="japaneseName"></param>
         /// <returns>Task of ApiResponse (PersonalNameGenderedOut)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PersonalNameGenderedOut>> GenderChineseNameAsyncWithHttpInfo (string chineseName);
+        System.Threading.Tasks.Task<ApiResponse<PersonalNameGenderedOut>> GenderJapaneseNameFullAsyncWithHttpInfo (string japaneseName);
         /// <summary>
-        /// Infer the likely gender of up to 100 full names ex. 王晓明
+        /// Infer the likely gender of up to 100 full names
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchPersonalNameIn">A list of personal names, with a country ISO2 code (optional)</param>
+        /// <param name="batchPersonalNameIn">A list of personal names (optional)</param>
         /// <returns>Task of BatchPersonalNameGenderedOut</returns>
-        System.Threading.Tasks.Task<BatchPersonalNameGenderedOut> GenderChineseNameBatchAsync (BatchPersonalNameIn batchPersonalNameIn = null);
+        System.Threading.Tasks.Task<BatchPersonalNameGenderedOut> GenderJapaneseNameFullBatchAsync (BatchPersonalNameIn batchPersonalNameIn = null);
 
         /// <summary>
-        /// Infer the likely gender of up to 100 full names ex. 王晓明
+        /// Infer the likely gender of up to 100 full names
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchPersonalNameIn">A list of personal names, with a country ISO2 code (optional)</param>
+        /// <param name="batchPersonalNameIn">A list of personal names (optional)</param>
         /// <returns>Task of ApiResponse (BatchPersonalNameGenderedOut)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BatchPersonalNameGenderedOut>> GenderChineseNameBatchAsyncWithHttpInfo (BatchPersonalNameIn batchPersonalNameIn = null);
+        System.Threading.Tasks.Task<ApiResponse<BatchPersonalNameGenderedOut>> GenderJapaneseNameFullBatchAsyncWithHttpInfo (BatchPersonalNameIn batchPersonalNameIn = null);
         /// <summary>
-        /// Infer the likely gender of a Chinese name in LATIN (Pinyin).
+        /// Infer the likely gender of a Japanese name in LATIN (Pinyin).
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
+        /// <param name="japaneseSurname"></param>
+        /// <param name="japaneseGivenName"></param>
         /// <returns>Task of FirstLastNameGenderedOut</returns>
-        System.Threading.Tasks.Task<FirstLastNameGenderedOut> GenderChineseNamePinyinAsync (string chineseSurnameLatin, string chineseGivenNameLatin);
+        System.Threading.Tasks.Task<FirstLastNameGenderedOut> GenderJapaneseNamePinyinAsync (string japaneseSurname, string japaneseGivenName);
 
         /// <summary>
-        /// Infer the likely gender of a Chinese name in LATIN (Pinyin).
+        /// Infer the likely gender of a Japanese name in LATIN (Pinyin).
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
+        /// <param name="japaneseSurname"></param>
+        /// <param name="japaneseGivenName"></param>
         /// <returns>Task of ApiResponse (FirstLastNameGenderedOut)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FirstLastNameGenderedOut>> GenderChineseNamePinyinAsyncWithHttpInfo (string chineseSurnameLatin, string chineseGivenNameLatin);
+        System.Threading.Tasks.Task<ApiResponse<FirstLastNameGenderedOut>> GenderJapaneseNamePinyinAsyncWithHttpInfo (string japaneseSurname, string japaneseGivenName);
         /// <summary>
-        /// Infer the likely gender of up to 100 Chinese names in LATIN (Pinyin).
+        /// Infer the likely gender of up to 100 Japanese names in LATIN (Pinyin).
         /// </summary>
         /// <remarks>
         /// 
@@ -542,10 +387,10 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchFirstLastNameIn">A list of names, with country code. (optional)</param>
         /// <returns>Task of BatchFirstLastNameGenderedOut</returns>
-        System.Threading.Tasks.Task<BatchFirstLastNameGenderedOut> GenderChineseNamePinyinBatchAsync (BatchFirstLastNameIn batchFirstLastNameIn = null);
+        System.Threading.Tasks.Task<BatchFirstLastNameGenderedOut> GenderJapaneseNamePinyinBatchAsync (BatchFirstLastNameIn batchFirstLastNameIn = null);
 
         /// <summary>
-        /// Infer the likely gender of up to 100 Chinese names in LATIN (Pinyin).
+        /// Infer the likely gender of up to 100 Japanese names in LATIN (Pinyin).
         /// </summary>
         /// <remarks>
         /// 
@@ -553,30 +398,189 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchFirstLastNameIn">A list of names, with country code. (optional)</param>
         /// <returns>Task of ApiResponse (BatchFirstLastNameGenderedOut)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BatchFirstLastNameGenderedOut>> GenderChineseNamePinyinBatchAsyncWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null);
+        System.Threading.Tasks.Task<ApiResponse<BatchFirstLastNameGenderedOut>> GenderJapaneseNamePinyinBatchAsyncWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null);
         /// <summary>
-        /// Infer the likely first/last name structure of a name, ex. 王晓明 -&gt; 王(surname) 晓明(given name)
+        /// Identify japanese name candidates in KANJI, based on the romanized name ex. Yamamoto Sanae
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseName"></param>
-        /// <returns>Task of PersonalNameParsedOut</returns>
-        System.Threading.Tasks.Task<PersonalNameParsedOut> ParseChineseNameAsync (string chineseName);
+        /// <param name="japaneseSurnameLatin"></param>
+        /// <param name="japaneseGivenNameLatin"></param>
+        /// <returns>Task of RomanizedNameOut</returns>
+        System.Threading.Tasks.Task<RomanizedNameOut> JapaneseNameKanjiCandidatesAsync (string japaneseSurnameLatin, string japaneseGivenNameLatin);
 
         /// <summary>
-        /// Infer the likely first/last name structure of a name, ex. 王晓明 -&gt; 王(surname) 晓明(given name)
+        /// Identify japanese name candidates in KANJI, based on the romanized name ex. Yamamoto Sanae
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseName"></param>
-        /// <returns>Task of ApiResponse (PersonalNameParsedOut)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PersonalNameParsedOut>> ParseChineseNameAsyncWithHttpInfo (string chineseName);
+        /// <param name="japaneseSurnameLatin"></param>
+        /// <param name="japaneseGivenNameLatin"></param>
+        /// <returns>Task of ApiResponse (RomanizedNameOut)</returns>
+        System.Threading.Tasks.Task<ApiResponse<RomanizedNameOut>> JapaneseNameKanjiCandidatesAsyncWithHttpInfo (string japaneseSurnameLatin, string japaneseGivenNameLatin);
         /// <summary>
-        /// Infer the likely first/last name structure of a name, ex. 王晓明 -&gt; 王(surname) 晓明(given name).
+        /// Identify japanese name candidates in KANJI, based on the romanized name (firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname), ex. Yamamoto Sanae
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchFirstLastNameIn">A list of personal japanese names in LATIN, firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname (optional)</param>
+        /// <returns>Task of BatchNameMatchCandidatesOut</returns>
+        System.Threading.Tasks.Task<BatchNameMatchCandidatesOut> JapaneseNameKanjiCandidatesBatchAsync (BatchFirstLastNameIn batchFirstLastNameIn = null);
+
+        /// <summary>
+        /// Identify japanese name candidates in KANJI, based on the romanized name (firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname), ex. Yamamoto Sanae
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchFirstLastNameIn">A list of personal japanese names in LATIN, firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname (optional)</param>
+        /// <returns>Task of ApiResponse (BatchNameMatchCandidatesOut)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BatchNameMatchCandidatesOut>> JapaneseNameKanjiCandidatesBatchAsyncWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null);
+        /// <summary>
+        /// Romanize japanese name, based on the name in Kanji.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseSurnameKanji"></param>
+        /// <param name="japaneseGivenNameKanji"></param>
+        /// <returns>Task of RomanizedNameOut</returns>
+        System.Threading.Tasks.Task<RomanizedNameOut> JapaneseNameLatinCandidatesAsync (string japaneseSurnameKanji, string japaneseGivenNameKanji);
+
+        /// <summary>
+        /// Romanize japanese name, based on the name in Kanji.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseSurnameKanji"></param>
+        /// <param name="japaneseGivenNameKanji"></param>
+        /// <returns>Task of ApiResponse (RomanizedNameOut)</returns>
+        System.Threading.Tasks.Task<ApiResponse<RomanizedNameOut>> JapaneseNameLatinCandidatesAsyncWithHttpInfo (string japaneseSurnameKanji, string japaneseGivenNameKanji);
+        /// <summary>
+        /// Romanize japanese names, based on the name in KANJI
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchFirstLastNameIn">A list of personal japanese names in KANJI, firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname (optional)</param>
+        /// <returns>Task of BatchNameMatchCandidatesOut</returns>
+        System.Threading.Tasks.Task<BatchNameMatchCandidatesOut> JapaneseNameLatinCandidatesBatchAsync (BatchFirstLastNameIn batchFirstLastNameIn = null);
+
+        /// <summary>
+        /// Romanize japanese names, based on the name in KANJI
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchFirstLastNameIn">A list of personal japanese names in KANJI, firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname (optional)</param>
+        /// <returns>Task of ApiResponse (BatchNameMatchCandidatesOut)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BatchNameMatchCandidatesOut>> JapaneseNameLatinCandidatesBatchAsyncWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null);
+        /// <summary>
+        /// Return a score for matching Japanese name in KANJI ex. 山本 早苗 with a romanized name ex. Yamamoto Sanae
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseSurnameLatin"></param>
+        /// <param name="japaneseGivenNameLatin"></param>
+        /// <param name="japaneseName"></param>
+        /// <returns>Task of RomanizedNameOut</returns>
+        System.Threading.Tasks.Task<RomanizedNameOut> JapaneseNameMatchAsync (string japaneseSurnameLatin, string japaneseGivenNameLatin, string japaneseName);
+
+        /// <summary>
+        /// Return a score for matching Japanese name in KANJI ex. 山本 早苗 with a romanized name ex. Yamamoto Sanae
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseSurnameLatin"></param>
+        /// <param name="japaneseGivenNameLatin"></param>
+        /// <param name="japaneseName"></param>
+        /// <returns>Task of ApiResponse (RomanizedNameOut)</returns>
+        System.Threading.Tasks.Task<ApiResponse<RomanizedNameOut>> JapaneseNameMatchAsyncWithHttpInfo (string japaneseSurnameLatin, string japaneseGivenNameLatin, string japaneseName);
+        /// <summary>
+        /// Return a score for matching a list of Japanese names in KANJI ex. 山本 早苗 with romanized names ex. Yamamoto Sanae
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchFirstLastNameIn">A list of personal Japanese names in LATIN, firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname (optional)</param>
+        /// <returns>Task of BatchNameMatchCandidatesOut</returns>
+        System.Threading.Tasks.Task<BatchNameMatchCandidatesOut> JapaneseNameMatchBatchAsync (BatchFirstLastNameIn batchFirstLastNameIn = null);
+
+        /// <summary>
+        /// Return a score for matching a list of Japanese names in KANJI ex. 山本 早苗 with romanized names ex. Yamamoto Sanae
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchFirstLastNameIn">A list of personal Japanese names in LATIN, firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname (optional)</param>
+        /// <returns>Task of ApiResponse (BatchNameMatchCandidatesOut)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BatchNameMatchCandidatesOut>> JapaneseNameMatchBatchAsyncWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null);
+        /// <summary>
+        /// [CREDITS 1 UNIT] Feedback loop to better perform matching Japanese name in KANJI ex. 山本 早苗 with a romanized name ex. Yamamoto Sanae
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseSurnameLatin"></param>
+        /// <param name="japaneseGivenNameLatin"></param>
+        /// <param name="japaneseName"></param>
+        /// <returns>Task of RomanizedNameOut</returns>
+        System.Threading.Tasks.Task<RomanizedNameOut> JapaneseNameMatchFeedbackLoopAsync (string japaneseSurnameLatin, string japaneseGivenNameLatin, string japaneseName);
+
+        /// <summary>
+        /// [CREDITS 1 UNIT] Feedback loop to better perform matching Japanese name in KANJI ex. 山本 早苗 with a romanized name ex. Yamamoto Sanae
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseSurnameLatin"></param>
+        /// <param name="japaneseGivenNameLatin"></param>
+        /// <param name="japaneseName"></param>
+        /// <returns>Task of ApiResponse (RomanizedNameOut)</returns>
+        System.Threading.Tasks.Task<ApiResponse<RomanizedNameOut>> JapaneseNameMatchFeedbackLoopAsyncWithHttpInfo (string japaneseSurnameLatin, string japaneseGivenNameLatin, string japaneseName);
+        /// <summary>
+        /// Infer the likely first/last name structure of a name, ex. 山本 早苗 or Yamamoto Sanae
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseName"></param>
+        /// <returns>Task of PersonalNameParsedOut</returns>
+        System.Threading.Tasks.Task<PersonalNameParsedOut> ParseJapaneseNameAsync (string japaneseName);
+
+        /// <summary>
+        /// Infer the likely first/last name structure of a name, ex. 山本 早苗 or Yamamoto Sanae
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseName"></param>
+        /// <returns>Task of ApiResponse (PersonalNameParsedOut)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PersonalNameParsedOut>> ParseJapaneseNameAsyncWithHttpInfo (string japaneseName);
+        /// <summary>
+        /// Infer the likely first/last name structure of a name, ex. 山本 早苗 or Yamamoto Sanae 
         /// </summary>
         /// <remarks>
         /// 
@@ -584,10 +588,10 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchPersonalNameIn">A list of personal names (optional)</param>
         /// <returns>Task of BatchPersonalNameParsedOut</returns>
-        System.Threading.Tasks.Task<BatchPersonalNameParsedOut> ParseChineseNameBatchAsync (BatchPersonalNameIn batchPersonalNameIn = null);
+        System.Threading.Tasks.Task<BatchPersonalNameParsedOut> ParseJapaneseNameBatchAsync (BatchPersonalNameIn batchPersonalNameIn = null);
 
         /// <summary>
-        /// Infer the likely first/last name structure of a name, ex. 王晓明 -&gt; 王(surname) 晓明(given name).
+        /// Infer the likely first/last name structure of a name, ex. 山本 早苗 or Yamamoto Sanae 
         /// </summary>
         /// <remarks>
         /// 
@@ -595,64 +599,22 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchPersonalNameIn">A list of personal names (optional)</param>
         /// <returns>Task of ApiResponse (BatchPersonalNameParsedOut)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BatchPersonalNameParsedOut>> ParseChineseNameBatchAsyncWithHttpInfo (BatchPersonalNameIn batchPersonalNameIn = null);
-        /// <summary>
-        /// Romanize the Chinese name to Pinyin, ex. 王晓明 -&gt; Wang (surname) Xiaoming (given name)
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseName"></param>
-        /// <returns>Task of PersonalNameParsedOut</returns>
-        System.Threading.Tasks.Task<PersonalNameParsedOut> PinyinChineseNameAsync (string chineseName);
-
-        /// <summary>
-        /// Romanize the Chinese name to Pinyin, ex. 王晓明 -&gt; Wang (surname) Xiaoming (given name)
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseName"></param>
-        /// <returns>Task of ApiResponse (PersonalNameParsedOut)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PersonalNameParsedOut>> PinyinChineseNameAsyncWithHttpInfo (string chineseName);
-        /// <summary>
-        /// Romanize a list of Chinese name to Pinyin, ex. 王晓明 -&gt; Wang (surname) Xiaoming (given name).
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchPersonalNameIn">A list of Chinese names (optional)</param>
-        /// <returns>Task of BatchPersonalNameParsedOut</returns>
-        System.Threading.Tasks.Task<BatchPersonalNameParsedOut> PinyinChineseNameBatchAsync (BatchPersonalNameIn batchPersonalNameIn = null);
-
-        /// <summary>
-        /// Romanize a list of Chinese name to Pinyin, ex. 王晓明 -&gt; Wang (surname) Xiaoming (given name).
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchPersonalNameIn">A list of Chinese names (optional)</param>
-        /// <returns>Task of ApiResponse (BatchPersonalNameParsedOut)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BatchPersonalNameParsedOut>> PinyinChineseNameBatchAsyncWithHttpInfo (BatchPersonalNameIn batchPersonalNameIn = null);
+        System.Threading.Tasks.Task<ApiResponse<BatchPersonalNameParsedOut>> ParseJapaneseNameBatchAsyncWithHttpInfo (BatchPersonalNameIn batchPersonalNameIn = null);
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class ChineseApi : IChineseApi
+    public partial class JapaneseApi : IJapaneseApi
     {
         private Org.OpenAPITools.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChineseApi"/> class.
+        /// Initializes a new instance of the <see cref="JapaneseApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public ChineseApi(String basePath)
+        public JapaneseApi(String basePath)
         {
             this.Configuration = new Org.OpenAPITools.Client.Configuration { BasePath = basePath };
 
@@ -660,10 +622,10 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChineseApi"/> class
+        /// Initializes a new instance of the <see cref="JapaneseApi"/> class
         /// </summary>
         /// <returns></returns>
-        public ChineseApi()
+        public JapaneseApi()
         {
             this.Configuration = Org.OpenAPITools.Client.Configuration.Default;
 
@@ -671,12 +633,12 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChineseApi"/> class
+        /// Initializes a new instance of the <see cref="JapaneseApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public ChineseApi(Org.OpenAPITools.Client.Configuration configuration = null)
+        public JapaneseApi(Org.OpenAPITools.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
                 this.Configuration = Org.OpenAPITools.Client.Configuration.Default;
@@ -750,978 +712,30 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
         }
 
         /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name ex. Wang Xiaoming 
+        /// Infer the likely gender of a Japanese full name ex. 王晓明 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
-        /// <returns>RomanizedNameOut</returns>
-        public RomanizedNameOut ChineseNameCandidates (string chineseSurnameLatin, string chineseGivenNameLatin)
-        {
-             ApiResponse<RomanizedNameOut> localVarResponse = ChineseNameCandidatesWithHttpInfo(chineseSurnameLatin, chineseGivenNameLatin);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name ex. Wang Xiaoming 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
-        /// <returns>ApiResponse of RomanizedNameOut</returns>
-        public ApiResponse< RomanizedNameOut > ChineseNameCandidatesWithHttpInfo (string chineseSurnameLatin, string chineseGivenNameLatin)
-        {
-            // verify the required parameter 'chineseSurnameLatin' is set
-            if (chineseSurnameLatin == null)
-                throw new ApiException(400, "Missing required parameter 'chineseSurnameLatin' when calling ChineseApi->ChineseNameCandidates");
-            // verify the required parameter 'chineseGivenNameLatin' is set
-            if (chineseGivenNameLatin == null)
-                throw new ApiException(400, "Missing required parameter 'chineseGivenNameLatin' when calling ChineseApi->ChineseNameCandidates");
-
-            var localVarPath = "/api2/json/chineseNameCandidates/{chineseSurnameLatin}/{chineseGivenNameLatin}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (chineseSurnameLatin != null) localVarPathParams.Add("chineseSurnameLatin", this.Configuration.ApiClient.ParameterToString(chineseSurnameLatin)); // path parameter
-            if (chineseGivenNameLatin != null) localVarPathParams.Add("chineseGivenNameLatin", this.Configuration.ApiClient.ParameterToString(chineseGivenNameLatin)); // path parameter
-
-            // authentication (api_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
-            {
-                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ChineseNameCandidates", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<RomanizedNameOut>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RomanizedNameOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RomanizedNameOut)));
-        }
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name ex. Wang Xiaoming 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
-        /// <returns>Task of RomanizedNameOut</returns>
-        public async System.Threading.Tasks.Task<RomanizedNameOut> ChineseNameCandidatesAsync (string chineseSurnameLatin, string chineseGivenNameLatin)
-        {
-             ApiResponse<RomanizedNameOut> localVarResponse = await ChineseNameCandidatesAsyncWithHttpInfo(chineseSurnameLatin, chineseGivenNameLatin);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name ex. Wang Xiaoming 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
-        /// <returns>Task of ApiResponse (RomanizedNameOut)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<RomanizedNameOut>> ChineseNameCandidatesAsyncWithHttpInfo (string chineseSurnameLatin, string chineseGivenNameLatin)
-        {
-            // verify the required parameter 'chineseSurnameLatin' is set
-            if (chineseSurnameLatin == null)
-                throw new ApiException(400, "Missing required parameter 'chineseSurnameLatin' when calling ChineseApi->ChineseNameCandidates");
-            // verify the required parameter 'chineseGivenNameLatin' is set
-            if (chineseGivenNameLatin == null)
-                throw new ApiException(400, "Missing required parameter 'chineseGivenNameLatin' when calling ChineseApi->ChineseNameCandidates");
-
-            var localVarPath = "/api2/json/chineseNameCandidates/{chineseSurnameLatin}/{chineseGivenNameLatin}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (chineseSurnameLatin != null) localVarPathParams.Add("chineseSurnameLatin", this.Configuration.ApiClient.ParameterToString(chineseSurnameLatin)); // path parameter
-            if (chineseGivenNameLatin != null) localVarPathParams.Add("chineseGivenNameLatin", this.Configuration.ApiClient.ParameterToString(chineseGivenNameLatin)); // path parameter
-
-            // authentication (api_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
-            {
-                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ChineseNameCandidates", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<RomanizedNameOut>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RomanizedNameOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RomanizedNameOut)));
-        }
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name (firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname), ex. Wang Xiaoming 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchFirstLastNameIn">A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname (optional)</param>
-        /// <returns>BatchNameMatchCandidatesOut</returns>
-        public BatchNameMatchCandidatesOut ChineseNameCandidatesBatch (BatchFirstLastNameIn batchFirstLastNameIn = null)
-        {
-             ApiResponse<BatchNameMatchCandidatesOut> localVarResponse = ChineseNameCandidatesBatchWithHttpInfo(batchFirstLastNameIn);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name (firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname), ex. Wang Xiaoming 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchFirstLastNameIn">A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname (optional)</param>
-        /// <returns>ApiResponse of BatchNameMatchCandidatesOut</returns>
-        public ApiResponse< BatchNameMatchCandidatesOut > ChineseNameCandidatesBatchWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null)
-        {
-
-            var localVarPath = "/api2/json/chineseNameCandidatesBatch";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (batchFirstLastNameIn != null && batchFirstLastNameIn.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(batchFirstLastNameIn); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = batchFirstLastNameIn; // byte array
-            }
-
-            // authentication (api_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
-            {
-                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ChineseNameCandidatesBatch", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<BatchNameMatchCandidatesOut>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (BatchNameMatchCandidatesOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BatchNameMatchCandidatesOut)));
-        }
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name (firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname), ex. Wang Xiaoming 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchFirstLastNameIn">A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname (optional)</param>
-        /// <returns>Task of BatchNameMatchCandidatesOut</returns>
-        public async System.Threading.Tasks.Task<BatchNameMatchCandidatesOut> ChineseNameCandidatesBatchAsync (BatchFirstLastNameIn batchFirstLastNameIn = null)
-        {
-             ApiResponse<BatchNameMatchCandidatesOut> localVarResponse = await ChineseNameCandidatesBatchAsyncWithHttpInfo(batchFirstLastNameIn);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name (firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname), ex. Wang Xiaoming 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchFirstLastNameIn">A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname (optional)</param>
-        /// <returns>Task of ApiResponse (BatchNameMatchCandidatesOut)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<BatchNameMatchCandidatesOut>> ChineseNameCandidatesBatchAsyncWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null)
-        {
-
-            var localVarPath = "/api2/json/chineseNameCandidatesBatch";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (batchFirstLastNameIn != null && batchFirstLastNameIn.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(batchFirstLastNameIn); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = batchFirstLastNameIn; // byte array
-            }
-
-            // authentication (api_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
-            {
-                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ChineseNameCandidatesBatch", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<BatchNameMatchCandidatesOut>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (BatchNameMatchCandidatesOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BatchNameMatchCandidatesOut)));
-        }
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name (firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname) ex. Wang Xiaoming. 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchFirstLastNameIn">A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname (optional)</param>
-        /// <returns>BatchNameMatchCandidatesOut</returns>
-        public BatchNameMatchCandidatesOut ChineseNameCandidatesGenderBatch (BatchFirstLastNameIn batchFirstLastNameIn = null)
-        {
-             ApiResponse<BatchNameMatchCandidatesOut> localVarResponse = ChineseNameCandidatesGenderBatchWithHttpInfo(batchFirstLastNameIn);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name (firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname) ex. Wang Xiaoming. 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchFirstLastNameIn">A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname (optional)</param>
-        /// <returns>ApiResponse of BatchNameMatchCandidatesOut</returns>
-        public ApiResponse< BatchNameMatchCandidatesOut > ChineseNameCandidatesGenderBatchWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null)
-        {
-
-            var localVarPath = "/api2/json/chineseNameCandidatesGenderBatch";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (batchFirstLastNameIn != null && batchFirstLastNameIn.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(batchFirstLastNameIn); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = batchFirstLastNameIn; // byte array
-            }
-
-            // authentication (api_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
-            {
-                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ChineseNameCandidatesGenderBatch", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<BatchNameMatchCandidatesOut>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (BatchNameMatchCandidatesOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BatchNameMatchCandidatesOut)));
-        }
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name (firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname) ex. Wang Xiaoming. 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchFirstLastNameIn">A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname (optional)</param>
-        /// <returns>Task of BatchNameMatchCandidatesOut</returns>
-        public async System.Threading.Tasks.Task<BatchNameMatchCandidatesOut> ChineseNameCandidatesGenderBatchAsync (BatchFirstLastNameIn batchFirstLastNameIn = null)
-        {
-             ApiResponse<BatchNameMatchCandidatesOut> localVarResponse = await ChineseNameCandidatesGenderBatchAsyncWithHttpInfo(batchFirstLastNameIn);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name (firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname) ex. Wang Xiaoming. 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchFirstLastNameIn">A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname (optional)</param>
-        /// <returns>Task of ApiResponse (BatchNameMatchCandidatesOut)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<BatchNameMatchCandidatesOut>> ChineseNameCandidatesGenderBatchAsyncWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null)
-        {
-
-            var localVarPath = "/api2/json/chineseNameCandidatesGenderBatch";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (batchFirstLastNameIn != null && batchFirstLastNameIn.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(batchFirstLastNameIn); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = batchFirstLastNameIn; // byte array
-            }
-
-            // authentication (api_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
-            {
-                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ChineseNameCandidatesGenderBatch", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<BatchNameMatchCandidatesOut>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (BatchNameMatchCandidatesOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BatchNameMatchCandidatesOut)));
-        }
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name ex. Wang Xiaoming - having a known gender (&#39;male&#39; or &#39;female&#39;) 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
-        /// <param name="knownGender"></param>
-        /// <returns>RomanizedNameOut</returns>
-        public RomanizedNameOut ChineseNameGenderCandidates (string chineseSurnameLatin, string chineseGivenNameLatin, string knownGender)
-        {
-             ApiResponse<RomanizedNameOut> localVarResponse = ChineseNameGenderCandidatesWithHttpInfo(chineseSurnameLatin, chineseGivenNameLatin, knownGender);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name ex. Wang Xiaoming - having a known gender (&#39;male&#39; or &#39;female&#39;) 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
-        /// <param name="knownGender"></param>
-        /// <returns>ApiResponse of RomanizedNameOut</returns>
-        public ApiResponse< RomanizedNameOut > ChineseNameGenderCandidatesWithHttpInfo (string chineseSurnameLatin, string chineseGivenNameLatin, string knownGender)
-        {
-            // verify the required parameter 'chineseSurnameLatin' is set
-            if (chineseSurnameLatin == null)
-                throw new ApiException(400, "Missing required parameter 'chineseSurnameLatin' when calling ChineseApi->ChineseNameGenderCandidates");
-            // verify the required parameter 'chineseGivenNameLatin' is set
-            if (chineseGivenNameLatin == null)
-                throw new ApiException(400, "Missing required parameter 'chineseGivenNameLatin' when calling ChineseApi->ChineseNameGenderCandidates");
-            // verify the required parameter 'knownGender' is set
-            if (knownGender == null)
-                throw new ApiException(400, "Missing required parameter 'knownGender' when calling ChineseApi->ChineseNameGenderCandidates");
-
-            var localVarPath = "/api2/json/chineseNameGenderCandidates/{chineseSurnameLatin}/{chineseGivenNameLatin}/{knownGender}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (chineseSurnameLatin != null) localVarPathParams.Add("chineseSurnameLatin", this.Configuration.ApiClient.ParameterToString(chineseSurnameLatin)); // path parameter
-            if (chineseGivenNameLatin != null) localVarPathParams.Add("chineseGivenNameLatin", this.Configuration.ApiClient.ParameterToString(chineseGivenNameLatin)); // path parameter
-            if (knownGender != null) localVarPathParams.Add("knownGender", this.Configuration.ApiClient.ParameterToString(knownGender)); // path parameter
-
-            // authentication (api_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
-            {
-                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ChineseNameGenderCandidates", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<RomanizedNameOut>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RomanizedNameOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RomanizedNameOut)));
-        }
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name ex. Wang Xiaoming - having a known gender (&#39;male&#39; or &#39;female&#39;) 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
-        /// <param name="knownGender"></param>
-        /// <returns>Task of RomanizedNameOut</returns>
-        public async System.Threading.Tasks.Task<RomanizedNameOut> ChineseNameGenderCandidatesAsync (string chineseSurnameLatin, string chineseGivenNameLatin, string knownGender)
-        {
-             ApiResponse<RomanizedNameOut> localVarResponse = await ChineseNameGenderCandidatesAsyncWithHttpInfo(chineseSurnameLatin, chineseGivenNameLatin, knownGender);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name ex. Wang Xiaoming - having a known gender (&#39;male&#39; or &#39;female&#39;) 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
-        /// <param name="knownGender"></param>
-        /// <returns>Task of ApiResponse (RomanizedNameOut)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<RomanizedNameOut>> ChineseNameGenderCandidatesAsyncWithHttpInfo (string chineseSurnameLatin, string chineseGivenNameLatin, string knownGender)
-        {
-            // verify the required parameter 'chineseSurnameLatin' is set
-            if (chineseSurnameLatin == null)
-                throw new ApiException(400, "Missing required parameter 'chineseSurnameLatin' when calling ChineseApi->ChineseNameGenderCandidates");
-            // verify the required parameter 'chineseGivenNameLatin' is set
-            if (chineseGivenNameLatin == null)
-                throw new ApiException(400, "Missing required parameter 'chineseGivenNameLatin' when calling ChineseApi->ChineseNameGenderCandidates");
-            // verify the required parameter 'knownGender' is set
-            if (knownGender == null)
-                throw new ApiException(400, "Missing required parameter 'knownGender' when calling ChineseApi->ChineseNameGenderCandidates");
-
-            var localVarPath = "/api2/json/chineseNameGenderCandidates/{chineseSurnameLatin}/{chineseGivenNameLatin}/{knownGender}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (chineseSurnameLatin != null) localVarPathParams.Add("chineseSurnameLatin", this.Configuration.ApiClient.ParameterToString(chineseSurnameLatin)); // path parameter
-            if (chineseGivenNameLatin != null) localVarPathParams.Add("chineseGivenNameLatin", this.Configuration.ApiClient.ParameterToString(chineseGivenNameLatin)); // path parameter
-            if (knownGender != null) localVarPathParams.Add("knownGender", this.Configuration.ApiClient.ParameterToString(knownGender)); // path parameter
-
-            // authentication (api_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
-            {
-                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ChineseNameGenderCandidates", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<RomanizedNameOut>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RomanizedNameOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RomanizedNameOut)));
-        }
-
-        /// <summary>
-        /// Return a score for matching Chinese name ex. 王晓明 with a romanized name ex. Wang Xiaoming 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
-        /// <param name="chineseName"></param>
-        /// <returns>RomanizedNameOut</returns>
-        public RomanizedNameOut ChineseNameMatch (string chineseSurnameLatin, string chineseGivenNameLatin, string chineseName)
-        {
-             ApiResponse<RomanizedNameOut> localVarResponse = ChineseNameMatchWithHttpInfo(chineseSurnameLatin, chineseGivenNameLatin, chineseName);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Return a score for matching Chinese name ex. 王晓明 with a romanized name ex. Wang Xiaoming 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
-        /// <param name="chineseName"></param>
-        /// <returns>ApiResponse of RomanizedNameOut</returns>
-        public ApiResponse< RomanizedNameOut > ChineseNameMatchWithHttpInfo (string chineseSurnameLatin, string chineseGivenNameLatin, string chineseName)
-        {
-            // verify the required parameter 'chineseSurnameLatin' is set
-            if (chineseSurnameLatin == null)
-                throw new ApiException(400, "Missing required parameter 'chineseSurnameLatin' when calling ChineseApi->ChineseNameMatch");
-            // verify the required parameter 'chineseGivenNameLatin' is set
-            if (chineseGivenNameLatin == null)
-                throw new ApiException(400, "Missing required parameter 'chineseGivenNameLatin' when calling ChineseApi->ChineseNameMatch");
-            // verify the required parameter 'chineseName' is set
-            if (chineseName == null)
-                throw new ApiException(400, "Missing required parameter 'chineseName' when calling ChineseApi->ChineseNameMatch");
-
-            var localVarPath = "/api2/json/chineseNameMatch/{chineseSurnameLatin}/{chineseGivenNameLatin}/{chineseName}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (chineseSurnameLatin != null) localVarPathParams.Add("chineseSurnameLatin", this.Configuration.ApiClient.ParameterToString(chineseSurnameLatin)); // path parameter
-            if (chineseGivenNameLatin != null) localVarPathParams.Add("chineseGivenNameLatin", this.Configuration.ApiClient.ParameterToString(chineseGivenNameLatin)); // path parameter
-            if (chineseName != null) localVarPathParams.Add("chineseName", this.Configuration.ApiClient.ParameterToString(chineseName)); // path parameter
-
-            // authentication (api_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
-            {
-                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ChineseNameMatch", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<RomanizedNameOut>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RomanizedNameOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RomanizedNameOut)));
-        }
-
-        /// <summary>
-        /// Return a score for matching Chinese name ex. 王晓明 with a romanized name ex. Wang Xiaoming 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
-        /// <param name="chineseName"></param>
-        /// <returns>Task of RomanizedNameOut</returns>
-        public async System.Threading.Tasks.Task<RomanizedNameOut> ChineseNameMatchAsync (string chineseSurnameLatin, string chineseGivenNameLatin, string chineseName)
-        {
-             ApiResponse<RomanizedNameOut> localVarResponse = await ChineseNameMatchAsyncWithHttpInfo(chineseSurnameLatin, chineseGivenNameLatin, chineseName);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Return a score for matching Chinese name ex. 王晓明 with a romanized name ex. Wang Xiaoming 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
-        /// <param name="chineseName"></param>
-        /// <returns>Task of ApiResponse (RomanizedNameOut)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<RomanizedNameOut>> ChineseNameMatchAsyncWithHttpInfo (string chineseSurnameLatin, string chineseGivenNameLatin, string chineseName)
-        {
-            // verify the required parameter 'chineseSurnameLatin' is set
-            if (chineseSurnameLatin == null)
-                throw new ApiException(400, "Missing required parameter 'chineseSurnameLatin' when calling ChineseApi->ChineseNameMatch");
-            // verify the required parameter 'chineseGivenNameLatin' is set
-            if (chineseGivenNameLatin == null)
-                throw new ApiException(400, "Missing required parameter 'chineseGivenNameLatin' when calling ChineseApi->ChineseNameMatch");
-            // verify the required parameter 'chineseName' is set
-            if (chineseName == null)
-                throw new ApiException(400, "Missing required parameter 'chineseName' when calling ChineseApi->ChineseNameMatch");
-
-            var localVarPath = "/api2/json/chineseNameMatch/{chineseSurnameLatin}/{chineseGivenNameLatin}/{chineseName}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (chineseSurnameLatin != null) localVarPathParams.Add("chineseSurnameLatin", this.Configuration.ApiClient.ParameterToString(chineseSurnameLatin)); // path parameter
-            if (chineseGivenNameLatin != null) localVarPathParams.Add("chineseGivenNameLatin", this.Configuration.ApiClient.ParameterToString(chineseGivenNameLatin)); // path parameter
-            if (chineseName != null) localVarPathParams.Add("chineseName", this.Configuration.ApiClient.ParameterToString(chineseName)); // path parameter
-
-            // authentication (api_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
-            {
-                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ChineseNameMatch", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<RomanizedNameOut>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RomanizedNameOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RomanizedNameOut)));
-        }
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name (firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname), ex. Wang Xiaoming 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchFirstLastNameIn">A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname (optional)</param>
-        /// <returns>BatchNameMatchCandidatesOut</returns>
-        public BatchNameMatchCandidatesOut ChineseNameMatchBatch (BatchFirstLastNameIn batchFirstLastNameIn = null)
-        {
-             ApiResponse<BatchNameMatchCandidatesOut> localVarResponse = ChineseNameMatchBatchWithHttpInfo(batchFirstLastNameIn);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name (firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname), ex. Wang Xiaoming 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchFirstLastNameIn">A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname (optional)</param>
-        /// <returns>ApiResponse of BatchNameMatchCandidatesOut</returns>
-        public ApiResponse< BatchNameMatchCandidatesOut > ChineseNameMatchBatchWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null)
-        {
-
-            var localVarPath = "/api2/json/chineseNameMatchBatch";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (batchFirstLastNameIn != null && batchFirstLastNameIn.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(batchFirstLastNameIn); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = batchFirstLastNameIn; // byte array
-            }
-
-            // authentication (api_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
-            {
-                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ChineseNameMatchBatch", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<BatchNameMatchCandidatesOut>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (BatchNameMatchCandidatesOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BatchNameMatchCandidatesOut)));
-        }
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name (firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname), ex. Wang Xiaoming 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchFirstLastNameIn">A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname (optional)</param>
-        /// <returns>Task of BatchNameMatchCandidatesOut</returns>
-        public async System.Threading.Tasks.Task<BatchNameMatchCandidatesOut> ChineseNameMatchBatchAsync (BatchFirstLastNameIn batchFirstLastNameIn = null)
-        {
-             ApiResponse<BatchNameMatchCandidatesOut> localVarResponse = await ChineseNameMatchBatchAsyncWithHttpInfo(batchFirstLastNameIn);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Identify Chinese name candidates, based on the romanized name (firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname), ex. Wang Xiaoming 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchFirstLastNameIn">A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname (optional)</param>
-        /// <returns>Task of ApiResponse (BatchNameMatchCandidatesOut)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<BatchNameMatchCandidatesOut>> ChineseNameMatchBatchAsyncWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null)
-        {
-
-            var localVarPath = "/api2/json/chineseNameMatchBatch";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (batchFirstLastNameIn != null && batchFirstLastNameIn.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(batchFirstLastNameIn); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = batchFirstLastNameIn; // byte array
-            }
-
-            // authentication (api_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
-            {
-                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ChineseNameMatchBatch", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<BatchNameMatchCandidatesOut>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (BatchNameMatchCandidatesOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BatchNameMatchCandidatesOut)));
-        }
-
-        /// <summary>
-        /// Infer the likely gender of a Chinese full name ex. 王晓明 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseName"></param>
+        /// <param name="japaneseName"></param>
         /// <returns>PersonalNameGenderedOut</returns>
-        public PersonalNameGenderedOut GenderChineseName (string chineseName)
+        public PersonalNameGenderedOut GenderJapaneseNameFull (string japaneseName)
         {
-             ApiResponse<PersonalNameGenderedOut> localVarResponse = GenderChineseNameWithHttpInfo(chineseName);
+             ApiResponse<PersonalNameGenderedOut> localVarResponse = GenderJapaneseNameFullWithHttpInfo(japaneseName);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Infer the likely gender of a Chinese full name ex. 王晓明 
+        /// Infer the likely gender of a Japanese full name ex. 王晓明 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseName"></param>
+        /// <param name="japaneseName"></param>
         /// <returns>ApiResponse of PersonalNameGenderedOut</returns>
-        public ApiResponse< PersonalNameGenderedOut > GenderChineseNameWithHttpInfo (string chineseName)
+        public ApiResponse< PersonalNameGenderedOut > GenderJapaneseNameFullWithHttpInfo (string japaneseName)
         {
-            // verify the required parameter 'chineseName' is set
-            if (chineseName == null)
-                throw new ApiException(400, "Missing required parameter 'chineseName' when calling ChineseApi->GenderChineseName");
+            // verify the required parameter 'japaneseName' is set
+            if (japaneseName == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseName' when calling JapaneseApi->GenderJapaneseNameFull");
 
-            var localVarPath = "/api2/json/genderChineseName/{chineseName}";
+            var localVarPath = "/api2/json/genderJapaneseNameFull/{japaneseName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1742,7 +756,7 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (chineseName != null) localVarPathParams.Add("chineseName", this.Configuration.ApiClient.ParameterToString(chineseName)); // path parameter
+            if (japaneseName != null) localVarPathParams.Add("japaneseName", this.Configuration.ApiClient.ParameterToString(japaneseName)); // path parameter
 
             // authentication (api_key) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
@@ -1759,7 +773,7 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GenderChineseName", localVarResponse);
+                Exception exception = ExceptionFactory("GenderJapaneseNameFull", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1769,31 +783,31 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
         }
 
         /// <summary>
-        /// Infer the likely gender of a Chinese full name ex. 王晓明 
+        /// Infer the likely gender of a Japanese full name ex. 王晓明 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseName"></param>
+        /// <param name="japaneseName"></param>
         /// <returns>Task of PersonalNameGenderedOut</returns>
-        public async System.Threading.Tasks.Task<PersonalNameGenderedOut> GenderChineseNameAsync (string chineseName)
+        public async System.Threading.Tasks.Task<PersonalNameGenderedOut> GenderJapaneseNameFullAsync (string japaneseName)
         {
-             ApiResponse<PersonalNameGenderedOut> localVarResponse = await GenderChineseNameAsyncWithHttpInfo(chineseName);
+             ApiResponse<PersonalNameGenderedOut> localVarResponse = await GenderJapaneseNameFullAsyncWithHttpInfo(japaneseName);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Infer the likely gender of a Chinese full name ex. 王晓明 
+        /// Infer the likely gender of a Japanese full name ex. 王晓明 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseName"></param>
+        /// <param name="japaneseName"></param>
         /// <returns>Task of ApiResponse (PersonalNameGenderedOut)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PersonalNameGenderedOut>> GenderChineseNameAsyncWithHttpInfo (string chineseName)
+        public async System.Threading.Tasks.Task<ApiResponse<PersonalNameGenderedOut>> GenderJapaneseNameFullAsyncWithHttpInfo (string japaneseName)
         {
-            // verify the required parameter 'chineseName' is set
-            if (chineseName == null)
-                throw new ApiException(400, "Missing required parameter 'chineseName' when calling ChineseApi->GenderChineseName");
+            // verify the required parameter 'japaneseName' is set
+            if (japaneseName == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseName' when calling JapaneseApi->GenderJapaneseNameFull");
 
-            var localVarPath = "/api2/json/genderChineseName/{chineseName}";
+            var localVarPath = "/api2/json/genderJapaneseNameFull/{japaneseName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1814,7 +828,7 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (chineseName != null) localVarPathParams.Add("chineseName", this.Configuration.ApiClient.ParameterToString(chineseName)); // path parameter
+            if (japaneseName != null) localVarPathParams.Add("japaneseName", this.Configuration.ApiClient.ParameterToString(japaneseName)); // path parameter
 
             // authentication (api_key) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
@@ -1831,7 +845,7 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GenderChineseName", localVarResponse);
+                Exception exception = ExceptionFactory("GenderJapaneseNameFull", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1841,27 +855,27 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
         }
 
         /// <summary>
-        /// Infer the likely gender of up to 100 full names ex. 王晓明 
+        /// Infer the likely gender of up to 100 full names 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchPersonalNameIn">A list of personal names, with a country ISO2 code (optional)</param>
+        /// <param name="batchPersonalNameIn">A list of personal names (optional)</param>
         /// <returns>BatchPersonalNameGenderedOut</returns>
-        public BatchPersonalNameGenderedOut GenderChineseNameBatch (BatchPersonalNameIn batchPersonalNameIn = null)
+        public BatchPersonalNameGenderedOut GenderJapaneseNameFullBatch (BatchPersonalNameIn batchPersonalNameIn = null)
         {
-             ApiResponse<BatchPersonalNameGenderedOut> localVarResponse = GenderChineseNameBatchWithHttpInfo(batchPersonalNameIn);
+             ApiResponse<BatchPersonalNameGenderedOut> localVarResponse = GenderJapaneseNameFullBatchWithHttpInfo(batchPersonalNameIn);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Infer the likely gender of up to 100 full names ex. 王晓明 
+        /// Infer the likely gender of up to 100 full names 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchPersonalNameIn">A list of personal names, with a country ISO2 code (optional)</param>
+        /// <param name="batchPersonalNameIn">A list of personal names (optional)</param>
         /// <returns>ApiResponse of BatchPersonalNameGenderedOut</returns>
-        public ApiResponse< BatchPersonalNameGenderedOut > GenderChineseNameBatchWithHttpInfo (BatchPersonalNameIn batchPersonalNameIn = null)
+        public ApiResponse< BatchPersonalNameGenderedOut > GenderJapaneseNameFullBatchWithHttpInfo (BatchPersonalNameIn batchPersonalNameIn = null)
         {
 
-            var localVarPath = "/api2/json/genderChineseNameBatch";
+            var localVarPath = "/api2/json/genderJapaneseNameFullBatch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1907,7 +921,7 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GenderChineseNameBatch", localVarResponse);
+                Exception exception = ExceptionFactory("GenderJapaneseNameFullBatch", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1917,28 +931,28 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
         }
 
         /// <summary>
-        /// Infer the likely gender of up to 100 full names ex. 王晓明 
+        /// Infer the likely gender of up to 100 full names 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchPersonalNameIn">A list of personal names, with a country ISO2 code (optional)</param>
+        /// <param name="batchPersonalNameIn">A list of personal names (optional)</param>
         /// <returns>Task of BatchPersonalNameGenderedOut</returns>
-        public async System.Threading.Tasks.Task<BatchPersonalNameGenderedOut> GenderChineseNameBatchAsync (BatchPersonalNameIn batchPersonalNameIn = null)
+        public async System.Threading.Tasks.Task<BatchPersonalNameGenderedOut> GenderJapaneseNameFullBatchAsync (BatchPersonalNameIn batchPersonalNameIn = null)
         {
-             ApiResponse<BatchPersonalNameGenderedOut> localVarResponse = await GenderChineseNameBatchAsyncWithHttpInfo(batchPersonalNameIn);
+             ApiResponse<BatchPersonalNameGenderedOut> localVarResponse = await GenderJapaneseNameFullBatchAsyncWithHttpInfo(batchPersonalNameIn);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Infer the likely gender of up to 100 full names ex. 王晓明 
+        /// Infer the likely gender of up to 100 full names 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchPersonalNameIn">A list of personal names, with a country ISO2 code (optional)</param>
+        /// <param name="batchPersonalNameIn">A list of personal names (optional)</param>
         /// <returns>Task of ApiResponse (BatchPersonalNameGenderedOut)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<BatchPersonalNameGenderedOut>> GenderChineseNameBatchAsyncWithHttpInfo (BatchPersonalNameIn batchPersonalNameIn = null)
+        public async System.Threading.Tasks.Task<ApiResponse<BatchPersonalNameGenderedOut>> GenderJapaneseNameFullBatchAsyncWithHttpInfo (BatchPersonalNameIn batchPersonalNameIn = null)
         {
 
-            var localVarPath = "/api2/json/genderChineseNameBatch";
+            var localVarPath = "/api2/json/genderJapaneseNameFullBatch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1984,7 +998,7 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GenderChineseNameBatch", localVarResponse);
+                Exception exception = ExceptionFactory("GenderJapaneseNameFullBatch", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1994,35 +1008,35 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
         }
 
         /// <summary>
-        /// Infer the likely gender of a Chinese name in LATIN (Pinyin). 
+        /// Infer the likely gender of a Japanese name in LATIN (Pinyin). 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
+        /// <param name="japaneseSurname"></param>
+        /// <param name="japaneseGivenName"></param>
         /// <returns>FirstLastNameGenderedOut</returns>
-        public FirstLastNameGenderedOut GenderChineseNamePinyin (string chineseSurnameLatin, string chineseGivenNameLatin)
+        public FirstLastNameGenderedOut GenderJapaneseNamePinyin (string japaneseSurname, string japaneseGivenName)
         {
-             ApiResponse<FirstLastNameGenderedOut> localVarResponse = GenderChineseNamePinyinWithHttpInfo(chineseSurnameLatin, chineseGivenNameLatin);
+             ApiResponse<FirstLastNameGenderedOut> localVarResponse = GenderJapaneseNamePinyinWithHttpInfo(japaneseSurname, japaneseGivenName);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Infer the likely gender of a Chinese name in LATIN (Pinyin). 
+        /// Infer the likely gender of a Japanese name in LATIN (Pinyin). 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
+        /// <param name="japaneseSurname"></param>
+        /// <param name="japaneseGivenName"></param>
         /// <returns>ApiResponse of FirstLastNameGenderedOut</returns>
-        public ApiResponse< FirstLastNameGenderedOut > GenderChineseNamePinyinWithHttpInfo (string chineseSurnameLatin, string chineseGivenNameLatin)
+        public ApiResponse< FirstLastNameGenderedOut > GenderJapaneseNamePinyinWithHttpInfo (string japaneseSurname, string japaneseGivenName)
         {
-            // verify the required parameter 'chineseSurnameLatin' is set
-            if (chineseSurnameLatin == null)
-                throw new ApiException(400, "Missing required parameter 'chineseSurnameLatin' when calling ChineseApi->GenderChineseNamePinyin");
-            // verify the required parameter 'chineseGivenNameLatin' is set
-            if (chineseGivenNameLatin == null)
-                throw new ApiException(400, "Missing required parameter 'chineseGivenNameLatin' when calling ChineseApi->GenderChineseNamePinyin");
+            // verify the required parameter 'japaneseSurname' is set
+            if (japaneseSurname == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseSurname' when calling JapaneseApi->GenderJapaneseNamePinyin");
+            // verify the required parameter 'japaneseGivenName' is set
+            if (japaneseGivenName == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseGivenName' when calling JapaneseApi->GenderJapaneseNamePinyin");
 
-            var localVarPath = "/api2/json/genderChineseNamePinyin/{chineseSurnameLatin}/{chineseGivenNameLatin}";
+            var localVarPath = "/api2/json/genderJapaneseName/{japaneseSurname}/{japaneseGivenName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2043,8 +1057,8 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (chineseSurnameLatin != null) localVarPathParams.Add("chineseSurnameLatin", this.Configuration.ApiClient.ParameterToString(chineseSurnameLatin)); // path parameter
-            if (chineseGivenNameLatin != null) localVarPathParams.Add("chineseGivenNameLatin", this.Configuration.ApiClient.ParameterToString(chineseGivenNameLatin)); // path parameter
+            if (japaneseSurname != null) localVarPathParams.Add("japaneseSurname", this.Configuration.ApiClient.ParameterToString(japaneseSurname)); // path parameter
+            if (japaneseGivenName != null) localVarPathParams.Add("japaneseGivenName", this.Configuration.ApiClient.ParameterToString(japaneseGivenName)); // path parameter
 
             // authentication (api_key) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
@@ -2061,7 +1075,7 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GenderChineseNamePinyin", localVarResponse);
+                Exception exception = ExceptionFactory("GenderJapaneseNamePinyin", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2071,36 +1085,36 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
         }
 
         /// <summary>
-        /// Infer the likely gender of a Chinese name in LATIN (Pinyin). 
+        /// Infer the likely gender of a Japanese name in LATIN (Pinyin). 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
+        /// <param name="japaneseSurname"></param>
+        /// <param name="japaneseGivenName"></param>
         /// <returns>Task of FirstLastNameGenderedOut</returns>
-        public async System.Threading.Tasks.Task<FirstLastNameGenderedOut> GenderChineseNamePinyinAsync (string chineseSurnameLatin, string chineseGivenNameLatin)
+        public async System.Threading.Tasks.Task<FirstLastNameGenderedOut> GenderJapaneseNamePinyinAsync (string japaneseSurname, string japaneseGivenName)
         {
-             ApiResponse<FirstLastNameGenderedOut> localVarResponse = await GenderChineseNamePinyinAsyncWithHttpInfo(chineseSurnameLatin, chineseGivenNameLatin);
+             ApiResponse<FirstLastNameGenderedOut> localVarResponse = await GenderJapaneseNamePinyinAsyncWithHttpInfo(japaneseSurname, japaneseGivenName);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Infer the likely gender of a Chinese name in LATIN (Pinyin). 
+        /// Infer the likely gender of a Japanese name in LATIN (Pinyin). 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseSurnameLatin"></param>
-        /// <param name="chineseGivenNameLatin"></param>
+        /// <param name="japaneseSurname"></param>
+        /// <param name="japaneseGivenName"></param>
         /// <returns>Task of ApiResponse (FirstLastNameGenderedOut)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FirstLastNameGenderedOut>> GenderChineseNamePinyinAsyncWithHttpInfo (string chineseSurnameLatin, string chineseGivenNameLatin)
+        public async System.Threading.Tasks.Task<ApiResponse<FirstLastNameGenderedOut>> GenderJapaneseNamePinyinAsyncWithHttpInfo (string japaneseSurname, string japaneseGivenName)
         {
-            // verify the required parameter 'chineseSurnameLatin' is set
-            if (chineseSurnameLatin == null)
-                throw new ApiException(400, "Missing required parameter 'chineseSurnameLatin' when calling ChineseApi->GenderChineseNamePinyin");
-            // verify the required parameter 'chineseGivenNameLatin' is set
-            if (chineseGivenNameLatin == null)
-                throw new ApiException(400, "Missing required parameter 'chineseGivenNameLatin' when calling ChineseApi->GenderChineseNamePinyin");
+            // verify the required parameter 'japaneseSurname' is set
+            if (japaneseSurname == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseSurname' when calling JapaneseApi->GenderJapaneseNamePinyin");
+            // verify the required parameter 'japaneseGivenName' is set
+            if (japaneseGivenName == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseGivenName' when calling JapaneseApi->GenderJapaneseNamePinyin");
 
-            var localVarPath = "/api2/json/genderChineseNamePinyin/{chineseSurnameLatin}/{chineseGivenNameLatin}";
+            var localVarPath = "/api2/json/genderJapaneseName/{japaneseSurname}/{japaneseGivenName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2121,8 +1135,8 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (chineseSurnameLatin != null) localVarPathParams.Add("chineseSurnameLatin", this.Configuration.ApiClient.ParameterToString(chineseSurnameLatin)); // path parameter
-            if (chineseGivenNameLatin != null) localVarPathParams.Add("chineseGivenNameLatin", this.Configuration.ApiClient.ParameterToString(chineseGivenNameLatin)); // path parameter
+            if (japaneseSurname != null) localVarPathParams.Add("japaneseSurname", this.Configuration.ApiClient.ParameterToString(japaneseSurname)); // path parameter
+            if (japaneseGivenName != null) localVarPathParams.Add("japaneseGivenName", this.Configuration.ApiClient.ParameterToString(japaneseGivenName)); // path parameter
 
             // authentication (api_key) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
@@ -2139,7 +1153,7 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GenderChineseNamePinyin", localVarResponse);
+                Exception exception = ExceptionFactory("GenderJapaneseNamePinyin", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2149,27 +1163,27 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
         }
 
         /// <summary>
-        /// Infer the likely gender of up to 100 Chinese names in LATIN (Pinyin). 
+        /// Infer the likely gender of up to 100 Japanese names in LATIN (Pinyin). 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchFirstLastNameIn">A list of names, with country code. (optional)</param>
         /// <returns>BatchFirstLastNameGenderedOut</returns>
-        public BatchFirstLastNameGenderedOut GenderChineseNamePinyinBatch (BatchFirstLastNameIn batchFirstLastNameIn = null)
+        public BatchFirstLastNameGenderedOut GenderJapaneseNamePinyinBatch (BatchFirstLastNameIn batchFirstLastNameIn = null)
         {
-             ApiResponse<BatchFirstLastNameGenderedOut> localVarResponse = GenderChineseNamePinyinBatchWithHttpInfo(batchFirstLastNameIn);
+             ApiResponse<BatchFirstLastNameGenderedOut> localVarResponse = GenderJapaneseNamePinyinBatchWithHttpInfo(batchFirstLastNameIn);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Infer the likely gender of up to 100 Chinese names in LATIN (Pinyin). 
+        /// Infer the likely gender of up to 100 Japanese names in LATIN (Pinyin). 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchFirstLastNameIn">A list of names, with country code. (optional)</param>
         /// <returns>ApiResponse of BatchFirstLastNameGenderedOut</returns>
-        public ApiResponse< BatchFirstLastNameGenderedOut > GenderChineseNamePinyinBatchWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null)
+        public ApiResponse< BatchFirstLastNameGenderedOut > GenderJapaneseNamePinyinBatchWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null)
         {
 
-            var localVarPath = "/api2/json/genderChineseNamePinyinBatch";
+            var localVarPath = "/api2/json/genderJapaneseNameBatch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2215,7 +1229,7 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GenderChineseNamePinyinBatch", localVarResponse);
+                Exception exception = ExceptionFactory("GenderJapaneseNamePinyinBatch", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2225,28 +1239,28 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
         }
 
         /// <summary>
-        /// Infer the likely gender of up to 100 Chinese names in LATIN (Pinyin). 
+        /// Infer the likely gender of up to 100 Japanese names in LATIN (Pinyin). 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchFirstLastNameIn">A list of names, with country code. (optional)</param>
         /// <returns>Task of BatchFirstLastNameGenderedOut</returns>
-        public async System.Threading.Tasks.Task<BatchFirstLastNameGenderedOut> GenderChineseNamePinyinBatchAsync (BatchFirstLastNameIn batchFirstLastNameIn = null)
+        public async System.Threading.Tasks.Task<BatchFirstLastNameGenderedOut> GenderJapaneseNamePinyinBatchAsync (BatchFirstLastNameIn batchFirstLastNameIn = null)
         {
-             ApiResponse<BatchFirstLastNameGenderedOut> localVarResponse = await GenderChineseNamePinyinBatchAsyncWithHttpInfo(batchFirstLastNameIn);
+             ApiResponse<BatchFirstLastNameGenderedOut> localVarResponse = await GenderJapaneseNamePinyinBatchAsyncWithHttpInfo(batchFirstLastNameIn);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Infer the likely gender of up to 100 Chinese names in LATIN (Pinyin). 
+        /// Infer the likely gender of up to 100 Japanese names in LATIN (Pinyin). 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchFirstLastNameIn">A list of names, with country code. (optional)</param>
         /// <returns>Task of ApiResponse (BatchFirstLastNameGenderedOut)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<BatchFirstLastNameGenderedOut>> GenderChineseNamePinyinBatchAsyncWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null)
+        public async System.Threading.Tasks.Task<ApiResponse<BatchFirstLastNameGenderedOut>> GenderJapaneseNamePinyinBatchAsyncWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null)
         {
 
-            var localVarPath = "/api2/json/genderChineseNamePinyinBatch";
+            var localVarPath = "/api2/json/genderJapaneseNameBatch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2292,7 +1306,7 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GenderChineseNamePinyinBatch", localVarResponse);
+                Exception exception = ExceptionFactory("GenderJapaneseNamePinyinBatch", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2302,30 +1316,35 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
         }
 
         /// <summary>
-        /// Infer the likely first/last name structure of a name, ex. 王晓明 -&gt; 王(surname) 晓明(given name) 
+        /// Identify japanese name candidates in KANJI, based on the romanized name ex. Yamamoto Sanae 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseName"></param>
-        /// <returns>PersonalNameParsedOut</returns>
-        public PersonalNameParsedOut ParseChineseName (string chineseName)
+        /// <param name="japaneseSurnameLatin"></param>
+        /// <param name="japaneseGivenNameLatin"></param>
+        /// <returns>RomanizedNameOut</returns>
+        public RomanizedNameOut JapaneseNameKanjiCandidates (string japaneseSurnameLatin, string japaneseGivenNameLatin)
         {
-             ApiResponse<PersonalNameParsedOut> localVarResponse = ParseChineseNameWithHttpInfo(chineseName);
+             ApiResponse<RomanizedNameOut> localVarResponse = JapaneseNameKanjiCandidatesWithHttpInfo(japaneseSurnameLatin, japaneseGivenNameLatin);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Infer the likely first/last name structure of a name, ex. 王晓明 -&gt; 王(surname) 晓明(given name) 
+        /// Identify japanese name candidates in KANJI, based on the romanized name ex. Yamamoto Sanae 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseName"></param>
-        /// <returns>ApiResponse of PersonalNameParsedOut</returns>
-        public ApiResponse< PersonalNameParsedOut > ParseChineseNameWithHttpInfo (string chineseName)
+        /// <param name="japaneseSurnameLatin"></param>
+        /// <param name="japaneseGivenNameLatin"></param>
+        /// <returns>ApiResponse of RomanizedNameOut</returns>
+        public ApiResponse< RomanizedNameOut > JapaneseNameKanjiCandidatesWithHttpInfo (string japaneseSurnameLatin, string japaneseGivenNameLatin)
         {
-            // verify the required parameter 'chineseName' is set
-            if (chineseName == null)
-                throw new ApiException(400, "Missing required parameter 'chineseName' when calling ChineseApi->ParseChineseName");
+            // verify the required parameter 'japaneseSurnameLatin' is set
+            if (japaneseSurnameLatin == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseSurnameLatin' when calling JapaneseApi->JapaneseNameKanjiCandidates");
+            // verify the required parameter 'japaneseGivenNameLatin' is set
+            if (japaneseGivenNameLatin == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseGivenNameLatin' when calling JapaneseApi->JapaneseNameKanjiCandidates");
 
-            var localVarPath = "/api2/json/parseChineseName/{chineseName}";
+            var localVarPath = "/api2/json/japaneseNameKanjiCandidates/{japaneseSurnameLatin}/{japaneseGivenNameLatin}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2346,7 +1365,8 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (chineseName != null) localVarPathParams.Add("chineseName", this.Configuration.ApiClient.ParameterToString(chineseName)); // path parameter
+            if (japaneseSurnameLatin != null) localVarPathParams.Add("japaneseSurnameLatin", this.Configuration.ApiClient.ParameterToString(japaneseSurnameLatin)); // path parameter
+            if (japaneseGivenNameLatin != null) localVarPathParams.Add("japaneseGivenNameLatin", this.Configuration.ApiClient.ParameterToString(japaneseGivenNameLatin)); // path parameter
 
             // authentication (api_key) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
@@ -2363,41 +1383,46 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ParseChineseName", localVarResponse);
+                Exception exception = ExceptionFactory("JapaneseNameKanjiCandidates", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<PersonalNameParsedOut>(localVarStatusCode,
+            return new ApiResponse<RomanizedNameOut>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PersonalNameParsedOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PersonalNameParsedOut)));
+                (RomanizedNameOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RomanizedNameOut)));
         }
 
         /// <summary>
-        /// Infer the likely first/last name structure of a name, ex. 王晓明 -&gt; 王(surname) 晓明(given name) 
+        /// Identify japanese name candidates in KANJI, based on the romanized name ex. Yamamoto Sanae 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseName"></param>
-        /// <returns>Task of PersonalNameParsedOut</returns>
-        public async System.Threading.Tasks.Task<PersonalNameParsedOut> ParseChineseNameAsync (string chineseName)
+        /// <param name="japaneseSurnameLatin"></param>
+        /// <param name="japaneseGivenNameLatin"></param>
+        /// <returns>Task of RomanizedNameOut</returns>
+        public async System.Threading.Tasks.Task<RomanizedNameOut> JapaneseNameKanjiCandidatesAsync (string japaneseSurnameLatin, string japaneseGivenNameLatin)
         {
-             ApiResponse<PersonalNameParsedOut> localVarResponse = await ParseChineseNameAsyncWithHttpInfo(chineseName);
+             ApiResponse<RomanizedNameOut> localVarResponse = await JapaneseNameKanjiCandidatesAsyncWithHttpInfo(japaneseSurnameLatin, japaneseGivenNameLatin);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Infer the likely first/last name structure of a name, ex. 王晓明 -&gt; 王(surname) 晓明(given name) 
+        /// Identify japanese name candidates in KANJI, based on the romanized name ex. Yamamoto Sanae 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseName"></param>
-        /// <returns>Task of ApiResponse (PersonalNameParsedOut)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PersonalNameParsedOut>> ParseChineseNameAsyncWithHttpInfo (string chineseName)
+        /// <param name="japaneseSurnameLatin"></param>
+        /// <param name="japaneseGivenNameLatin"></param>
+        /// <returns>Task of ApiResponse (RomanizedNameOut)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<RomanizedNameOut>> JapaneseNameKanjiCandidatesAsyncWithHttpInfo (string japaneseSurnameLatin, string japaneseGivenNameLatin)
         {
-            // verify the required parameter 'chineseName' is set
-            if (chineseName == null)
-                throw new ApiException(400, "Missing required parameter 'chineseName' when calling ChineseApi->ParseChineseName");
+            // verify the required parameter 'japaneseSurnameLatin' is set
+            if (japaneseSurnameLatin == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseSurnameLatin' when calling JapaneseApi->JapaneseNameKanjiCandidates");
+            // verify the required parameter 'japaneseGivenNameLatin' is set
+            if (japaneseGivenNameLatin == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseGivenNameLatin' when calling JapaneseApi->JapaneseNameKanjiCandidates");
 
-            var localVarPath = "/api2/json/parseChineseName/{chineseName}";
+            var localVarPath = "/api2/json/japaneseNameKanjiCandidates/{japaneseSurnameLatin}/{japaneseGivenNameLatin}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2418,7 +1443,8 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (chineseName != null) localVarPathParams.Add("chineseName", this.Configuration.ApiClient.ParameterToString(chineseName)); // path parameter
+            if (japaneseSurnameLatin != null) localVarPathParams.Add("japaneseSurnameLatin", this.Configuration.ApiClient.ParameterToString(japaneseSurnameLatin)); // path parameter
+            if (japaneseGivenNameLatin != null) localVarPathParams.Add("japaneseGivenNameLatin", this.Configuration.ApiClient.ParameterToString(japaneseGivenNameLatin)); // path parameter
 
             // authentication (api_key) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
@@ -2435,7 +1461,1026 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ParseChineseName", localVarResponse);
+                Exception exception = ExceptionFactory("JapaneseNameKanjiCandidates", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<RomanizedNameOut>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (RomanizedNameOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RomanizedNameOut)));
+        }
+
+        /// <summary>
+        /// Identify japanese name candidates in KANJI, based on the romanized name (firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname), ex. Yamamoto Sanae 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchFirstLastNameIn">A list of personal japanese names in LATIN, firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname (optional)</param>
+        /// <returns>BatchNameMatchCandidatesOut</returns>
+        public BatchNameMatchCandidatesOut JapaneseNameKanjiCandidatesBatch (BatchFirstLastNameIn batchFirstLastNameIn = null)
+        {
+             ApiResponse<BatchNameMatchCandidatesOut> localVarResponse = JapaneseNameKanjiCandidatesBatchWithHttpInfo(batchFirstLastNameIn);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Identify japanese name candidates in KANJI, based on the romanized name (firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname), ex. Yamamoto Sanae 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchFirstLastNameIn">A list of personal japanese names in LATIN, firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname (optional)</param>
+        /// <returns>ApiResponse of BatchNameMatchCandidatesOut</returns>
+        public ApiResponse< BatchNameMatchCandidatesOut > JapaneseNameKanjiCandidatesBatchWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null)
+        {
+
+            var localVarPath = "/api2/json/japaneseNameKanjiCandidatesBatch";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (batchFirstLastNameIn != null && batchFirstLastNameIn.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(batchFirstLastNameIn); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = batchFirstLastNameIn; // byte array
+            }
+
+            // authentication (api_key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("JapaneseNameKanjiCandidatesBatch", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BatchNameMatchCandidatesOut>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (BatchNameMatchCandidatesOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BatchNameMatchCandidatesOut)));
+        }
+
+        /// <summary>
+        /// Identify japanese name candidates in KANJI, based on the romanized name (firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname), ex. Yamamoto Sanae 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchFirstLastNameIn">A list of personal japanese names in LATIN, firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname (optional)</param>
+        /// <returns>Task of BatchNameMatchCandidatesOut</returns>
+        public async System.Threading.Tasks.Task<BatchNameMatchCandidatesOut> JapaneseNameKanjiCandidatesBatchAsync (BatchFirstLastNameIn batchFirstLastNameIn = null)
+        {
+             ApiResponse<BatchNameMatchCandidatesOut> localVarResponse = await JapaneseNameKanjiCandidatesBatchAsyncWithHttpInfo(batchFirstLastNameIn);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Identify japanese name candidates in KANJI, based on the romanized name (firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname), ex. Yamamoto Sanae 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchFirstLastNameIn">A list of personal japanese names in LATIN, firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname (optional)</param>
+        /// <returns>Task of ApiResponse (BatchNameMatchCandidatesOut)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<BatchNameMatchCandidatesOut>> JapaneseNameKanjiCandidatesBatchAsyncWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null)
+        {
+
+            var localVarPath = "/api2/json/japaneseNameKanjiCandidatesBatch";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (batchFirstLastNameIn != null && batchFirstLastNameIn.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(batchFirstLastNameIn); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = batchFirstLastNameIn; // byte array
+            }
+
+            // authentication (api_key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("JapaneseNameKanjiCandidatesBatch", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BatchNameMatchCandidatesOut>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (BatchNameMatchCandidatesOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BatchNameMatchCandidatesOut)));
+        }
+
+        /// <summary>
+        /// Romanize japanese name, based on the name in Kanji. 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseSurnameKanji"></param>
+        /// <param name="japaneseGivenNameKanji"></param>
+        /// <returns>RomanizedNameOut</returns>
+        public RomanizedNameOut JapaneseNameLatinCandidates (string japaneseSurnameKanji, string japaneseGivenNameKanji)
+        {
+             ApiResponse<RomanizedNameOut> localVarResponse = JapaneseNameLatinCandidatesWithHttpInfo(japaneseSurnameKanji, japaneseGivenNameKanji);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Romanize japanese name, based on the name in Kanji. 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseSurnameKanji"></param>
+        /// <param name="japaneseGivenNameKanji"></param>
+        /// <returns>ApiResponse of RomanizedNameOut</returns>
+        public ApiResponse< RomanizedNameOut > JapaneseNameLatinCandidatesWithHttpInfo (string japaneseSurnameKanji, string japaneseGivenNameKanji)
+        {
+            // verify the required parameter 'japaneseSurnameKanji' is set
+            if (japaneseSurnameKanji == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseSurnameKanji' when calling JapaneseApi->JapaneseNameLatinCandidates");
+            // verify the required parameter 'japaneseGivenNameKanji' is set
+            if (japaneseGivenNameKanji == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseGivenNameKanji' when calling JapaneseApi->JapaneseNameLatinCandidates");
+
+            var localVarPath = "/api2/json/japaneseNameLatinCandidates/{japaneseSurnameKanji}/{japaneseGivenNameKanji}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (japaneseSurnameKanji != null) localVarPathParams.Add("japaneseSurnameKanji", this.Configuration.ApiClient.ParameterToString(japaneseSurnameKanji)); // path parameter
+            if (japaneseGivenNameKanji != null) localVarPathParams.Add("japaneseGivenNameKanji", this.Configuration.ApiClient.ParameterToString(japaneseGivenNameKanji)); // path parameter
+
+            // authentication (api_key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("JapaneseNameLatinCandidates", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<RomanizedNameOut>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (RomanizedNameOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RomanizedNameOut)));
+        }
+
+        /// <summary>
+        /// Romanize japanese name, based on the name in Kanji. 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseSurnameKanji"></param>
+        /// <param name="japaneseGivenNameKanji"></param>
+        /// <returns>Task of RomanizedNameOut</returns>
+        public async System.Threading.Tasks.Task<RomanizedNameOut> JapaneseNameLatinCandidatesAsync (string japaneseSurnameKanji, string japaneseGivenNameKanji)
+        {
+             ApiResponse<RomanizedNameOut> localVarResponse = await JapaneseNameLatinCandidatesAsyncWithHttpInfo(japaneseSurnameKanji, japaneseGivenNameKanji);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Romanize japanese name, based on the name in Kanji. 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseSurnameKanji"></param>
+        /// <param name="japaneseGivenNameKanji"></param>
+        /// <returns>Task of ApiResponse (RomanizedNameOut)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<RomanizedNameOut>> JapaneseNameLatinCandidatesAsyncWithHttpInfo (string japaneseSurnameKanji, string japaneseGivenNameKanji)
+        {
+            // verify the required parameter 'japaneseSurnameKanji' is set
+            if (japaneseSurnameKanji == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseSurnameKanji' when calling JapaneseApi->JapaneseNameLatinCandidates");
+            // verify the required parameter 'japaneseGivenNameKanji' is set
+            if (japaneseGivenNameKanji == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseGivenNameKanji' when calling JapaneseApi->JapaneseNameLatinCandidates");
+
+            var localVarPath = "/api2/json/japaneseNameLatinCandidates/{japaneseSurnameKanji}/{japaneseGivenNameKanji}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (japaneseSurnameKanji != null) localVarPathParams.Add("japaneseSurnameKanji", this.Configuration.ApiClient.ParameterToString(japaneseSurnameKanji)); // path parameter
+            if (japaneseGivenNameKanji != null) localVarPathParams.Add("japaneseGivenNameKanji", this.Configuration.ApiClient.ParameterToString(japaneseGivenNameKanji)); // path parameter
+
+            // authentication (api_key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("JapaneseNameLatinCandidates", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<RomanizedNameOut>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (RomanizedNameOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RomanizedNameOut)));
+        }
+
+        /// <summary>
+        /// Romanize japanese names, based on the name in KANJI 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchFirstLastNameIn">A list of personal japanese names in KANJI, firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname (optional)</param>
+        /// <returns>BatchNameMatchCandidatesOut</returns>
+        public BatchNameMatchCandidatesOut JapaneseNameLatinCandidatesBatch (BatchFirstLastNameIn batchFirstLastNameIn = null)
+        {
+             ApiResponse<BatchNameMatchCandidatesOut> localVarResponse = JapaneseNameLatinCandidatesBatchWithHttpInfo(batchFirstLastNameIn);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Romanize japanese names, based on the name in KANJI 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchFirstLastNameIn">A list of personal japanese names in KANJI, firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname (optional)</param>
+        /// <returns>ApiResponse of BatchNameMatchCandidatesOut</returns>
+        public ApiResponse< BatchNameMatchCandidatesOut > JapaneseNameLatinCandidatesBatchWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null)
+        {
+
+            var localVarPath = "/api2/json/japaneseNameLatinCandidatesBatch";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (batchFirstLastNameIn != null && batchFirstLastNameIn.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(batchFirstLastNameIn); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = batchFirstLastNameIn; // byte array
+            }
+
+            // authentication (api_key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("JapaneseNameLatinCandidatesBatch", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BatchNameMatchCandidatesOut>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (BatchNameMatchCandidatesOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BatchNameMatchCandidatesOut)));
+        }
+
+        /// <summary>
+        /// Romanize japanese names, based on the name in KANJI 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchFirstLastNameIn">A list of personal japanese names in KANJI, firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname (optional)</param>
+        /// <returns>Task of BatchNameMatchCandidatesOut</returns>
+        public async System.Threading.Tasks.Task<BatchNameMatchCandidatesOut> JapaneseNameLatinCandidatesBatchAsync (BatchFirstLastNameIn batchFirstLastNameIn = null)
+        {
+             ApiResponse<BatchNameMatchCandidatesOut> localVarResponse = await JapaneseNameLatinCandidatesBatchAsyncWithHttpInfo(batchFirstLastNameIn);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Romanize japanese names, based on the name in KANJI 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchFirstLastNameIn">A list of personal japanese names in KANJI, firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname (optional)</param>
+        /// <returns>Task of ApiResponse (BatchNameMatchCandidatesOut)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<BatchNameMatchCandidatesOut>> JapaneseNameLatinCandidatesBatchAsyncWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null)
+        {
+
+            var localVarPath = "/api2/json/japaneseNameLatinCandidatesBatch";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (batchFirstLastNameIn != null && batchFirstLastNameIn.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(batchFirstLastNameIn); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = batchFirstLastNameIn; // byte array
+            }
+
+            // authentication (api_key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("JapaneseNameLatinCandidatesBatch", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BatchNameMatchCandidatesOut>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (BatchNameMatchCandidatesOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BatchNameMatchCandidatesOut)));
+        }
+
+        /// <summary>
+        /// Return a score for matching Japanese name in KANJI ex. 山本 早苗 with a romanized name ex. Yamamoto Sanae 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseSurnameLatin"></param>
+        /// <param name="japaneseGivenNameLatin"></param>
+        /// <param name="japaneseName"></param>
+        /// <returns>RomanizedNameOut</returns>
+        public RomanizedNameOut JapaneseNameMatch (string japaneseSurnameLatin, string japaneseGivenNameLatin, string japaneseName)
+        {
+             ApiResponse<RomanizedNameOut> localVarResponse = JapaneseNameMatchWithHttpInfo(japaneseSurnameLatin, japaneseGivenNameLatin, japaneseName);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Return a score for matching Japanese name in KANJI ex. 山本 早苗 with a romanized name ex. Yamamoto Sanae 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseSurnameLatin"></param>
+        /// <param name="japaneseGivenNameLatin"></param>
+        /// <param name="japaneseName"></param>
+        /// <returns>ApiResponse of RomanizedNameOut</returns>
+        public ApiResponse< RomanizedNameOut > JapaneseNameMatchWithHttpInfo (string japaneseSurnameLatin, string japaneseGivenNameLatin, string japaneseName)
+        {
+            // verify the required parameter 'japaneseSurnameLatin' is set
+            if (japaneseSurnameLatin == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseSurnameLatin' when calling JapaneseApi->JapaneseNameMatch");
+            // verify the required parameter 'japaneseGivenNameLatin' is set
+            if (japaneseGivenNameLatin == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseGivenNameLatin' when calling JapaneseApi->JapaneseNameMatch");
+            // verify the required parameter 'japaneseName' is set
+            if (japaneseName == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseName' when calling JapaneseApi->JapaneseNameMatch");
+
+            var localVarPath = "/api2/json/japaneseNameMatch/{japaneseSurnameLatin}/{japaneseGivenNameLatin}/{japaneseName}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (japaneseSurnameLatin != null) localVarPathParams.Add("japaneseSurnameLatin", this.Configuration.ApiClient.ParameterToString(japaneseSurnameLatin)); // path parameter
+            if (japaneseGivenNameLatin != null) localVarPathParams.Add("japaneseGivenNameLatin", this.Configuration.ApiClient.ParameterToString(japaneseGivenNameLatin)); // path parameter
+            if (japaneseName != null) localVarPathParams.Add("japaneseName", this.Configuration.ApiClient.ParameterToString(japaneseName)); // path parameter
+
+            // authentication (api_key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("JapaneseNameMatch", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<RomanizedNameOut>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (RomanizedNameOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RomanizedNameOut)));
+        }
+
+        /// <summary>
+        /// Return a score for matching Japanese name in KANJI ex. 山本 早苗 with a romanized name ex. Yamamoto Sanae 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseSurnameLatin"></param>
+        /// <param name="japaneseGivenNameLatin"></param>
+        /// <param name="japaneseName"></param>
+        /// <returns>Task of RomanizedNameOut</returns>
+        public async System.Threading.Tasks.Task<RomanizedNameOut> JapaneseNameMatchAsync (string japaneseSurnameLatin, string japaneseGivenNameLatin, string japaneseName)
+        {
+             ApiResponse<RomanizedNameOut> localVarResponse = await JapaneseNameMatchAsyncWithHttpInfo(japaneseSurnameLatin, japaneseGivenNameLatin, japaneseName);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Return a score for matching Japanese name in KANJI ex. 山本 早苗 with a romanized name ex. Yamamoto Sanae 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseSurnameLatin"></param>
+        /// <param name="japaneseGivenNameLatin"></param>
+        /// <param name="japaneseName"></param>
+        /// <returns>Task of ApiResponse (RomanizedNameOut)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<RomanizedNameOut>> JapaneseNameMatchAsyncWithHttpInfo (string japaneseSurnameLatin, string japaneseGivenNameLatin, string japaneseName)
+        {
+            // verify the required parameter 'japaneseSurnameLatin' is set
+            if (japaneseSurnameLatin == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseSurnameLatin' when calling JapaneseApi->JapaneseNameMatch");
+            // verify the required parameter 'japaneseGivenNameLatin' is set
+            if (japaneseGivenNameLatin == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseGivenNameLatin' when calling JapaneseApi->JapaneseNameMatch");
+            // verify the required parameter 'japaneseName' is set
+            if (japaneseName == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseName' when calling JapaneseApi->JapaneseNameMatch");
+
+            var localVarPath = "/api2/json/japaneseNameMatch/{japaneseSurnameLatin}/{japaneseGivenNameLatin}/{japaneseName}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (japaneseSurnameLatin != null) localVarPathParams.Add("japaneseSurnameLatin", this.Configuration.ApiClient.ParameterToString(japaneseSurnameLatin)); // path parameter
+            if (japaneseGivenNameLatin != null) localVarPathParams.Add("japaneseGivenNameLatin", this.Configuration.ApiClient.ParameterToString(japaneseGivenNameLatin)); // path parameter
+            if (japaneseName != null) localVarPathParams.Add("japaneseName", this.Configuration.ApiClient.ParameterToString(japaneseName)); // path parameter
+
+            // authentication (api_key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("JapaneseNameMatch", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<RomanizedNameOut>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (RomanizedNameOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RomanizedNameOut)));
+        }
+
+        /// <summary>
+        /// Return a score for matching a list of Japanese names in KANJI ex. 山本 早苗 with romanized names ex. Yamamoto Sanae 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchFirstLastNameIn">A list of personal Japanese names in LATIN, firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname (optional)</param>
+        /// <returns>BatchNameMatchCandidatesOut</returns>
+        public BatchNameMatchCandidatesOut JapaneseNameMatchBatch (BatchFirstLastNameIn batchFirstLastNameIn = null)
+        {
+             ApiResponse<BatchNameMatchCandidatesOut> localVarResponse = JapaneseNameMatchBatchWithHttpInfo(batchFirstLastNameIn);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Return a score for matching a list of Japanese names in KANJI ex. 山本 早苗 with romanized names ex. Yamamoto Sanae 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchFirstLastNameIn">A list of personal Japanese names in LATIN, firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname (optional)</param>
+        /// <returns>ApiResponse of BatchNameMatchCandidatesOut</returns>
+        public ApiResponse< BatchNameMatchCandidatesOut > JapaneseNameMatchBatchWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null)
+        {
+
+            var localVarPath = "/api2/json/japaneseNameMatchBatch";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (batchFirstLastNameIn != null && batchFirstLastNameIn.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(batchFirstLastNameIn); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = batchFirstLastNameIn; // byte array
+            }
+
+            // authentication (api_key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("JapaneseNameMatchBatch", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BatchNameMatchCandidatesOut>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (BatchNameMatchCandidatesOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BatchNameMatchCandidatesOut)));
+        }
+
+        /// <summary>
+        /// Return a score for matching a list of Japanese names in KANJI ex. 山本 早苗 with romanized names ex. Yamamoto Sanae 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchFirstLastNameIn">A list of personal Japanese names in LATIN, firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname (optional)</param>
+        /// <returns>Task of BatchNameMatchCandidatesOut</returns>
+        public async System.Threading.Tasks.Task<BatchNameMatchCandidatesOut> JapaneseNameMatchBatchAsync (BatchFirstLastNameIn batchFirstLastNameIn = null)
+        {
+             ApiResponse<BatchNameMatchCandidatesOut> localVarResponse = await JapaneseNameMatchBatchAsyncWithHttpInfo(batchFirstLastNameIn);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Return a score for matching a list of Japanese names in KANJI ex. 山本 早苗 with romanized names ex. Yamamoto Sanae 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchFirstLastNameIn">A list of personal Japanese names in LATIN, firstName &#x3D; japaneseGivenName; lastName&#x3D;japaneseSurname (optional)</param>
+        /// <returns>Task of ApiResponse (BatchNameMatchCandidatesOut)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<BatchNameMatchCandidatesOut>> JapaneseNameMatchBatchAsyncWithHttpInfo (BatchFirstLastNameIn batchFirstLastNameIn = null)
+        {
+
+            var localVarPath = "/api2/json/japaneseNameMatchBatch";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (batchFirstLastNameIn != null && batchFirstLastNameIn.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(batchFirstLastNameIn); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = batchFirstLastNameIn; // byte array
+            }
+
+            // authentication (api_key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("JapaneseNameMatchBatch", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BatchNameMatchCandidatesOut>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (BatchNameMatchCandidatesOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BatchNameMatchCandidatesOut)));
+        }
+
+        /// <summary>
+        /// [CREDITS 1 UNIT] Feedback loop to better perform matching Japanese name in KANJI ex. 山本 早苗 with a romanized name ex. Yamamoto Sanae 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseSurnameLatin"></param>
+        /// <param name="japaneseGivenNameLatin"></param>
+        /// <param name="japaneseName"></param>
+        /// <returns>RomanizedNameOut</returns>
+        public RomanizedNameOut JapaneseNameMatchFeedbackLoop (string japaneseSurnameLatin, string japaneseGivenNameLatin, string japaneseName)
+        {
+             ApiResponse<RomanizedNameOut> localVarResponse = JapaneseNameMatchFeedbackLoopWithHttpInfo(japaneseSurnameLatin, japaneseGivenNameLatin, japaneseName);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [CREDITS 1 UNIT] Feedback loop to better perform matching Japanese name in KANJI ex. 山本 早苗 with a romanized name ex. Yamamoto Sanae 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseSurnameLatin"></param>
+        /// <param name="japaneseGivenNameLatin"></param>
+        /// <param name="japaneseName"></param>
+        /// <returns>ApiResponse of RomanizedNameOut</returns>
+        public ApiResponse< RomanizedNameOut > JapaneseNameMatchFeedbackLoopWithHttpInfo (string japaneseSurnameLatin, string japaneseGivenNameLatin, string japaneseName)
+        {
+            // verify the required parameter 'japaneseSurnameLatin' is set
+            if (japaneseSurnameLatin == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseSurnameLatin' when calling JapaneseApi->JapaneseNameMatchFeedbackLoop");
+            // verify the required parameter 'japaneseGivenNameLatin' is set
+            if (japaneseGivenNameLatin == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseGivenNameLatin' when calling JapaneseApi->JapaneseNameMatchFeedbackLoop");
+            // verify the required parameter 'japaneseName' is set
+            if (japaneseName == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseName' when calling JapaneseApi->JapaneseNameMatchFeedbackLoop");
+
+            var localVarPath = "/api2/json/japaneseNameMatchFeedbackLoop/{japaneseSurnameLatin}/{japaneseGivenNameLatin}/{japaneseName}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (japaneseSurnameLatin != null) localVarPathParams.Add("japaneseSurnameLatin", this.Configuration.ApiClient.ParameterToString(japaneseSurnameLatin)); // path parameter
+            if (japaneseGivenNameLatin != null) localVarPathParams.Add("japaneseGivenNameLatin", this.Configuration.ApiClient.ParameterToString(japaneseGivenNameLatin)); // path parameter
+            if (japaneseName != null) localVarPathParams.Add("japaneseName", this.Configuration.ApiClient.ParameterToString(japaneseName)); // path parameter
+
+            // authentication (api_key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("JapaneseNameMatchFeedbackLoop", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<RomanizedNameOut>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (RomanizedNameOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RomanizedNameOut)));
+        }
+
+        /// <summary>
+        /// [CREDITS 1 UNIT] Feedback loop to better perform matching Japanese name in KANJI ex. 山本 早苗 with a romanized name ex. Yamamoto Sanae 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseSurnameLatin"></param>
+        /// <param name="japaneseGivenNameLatin"></param>
+        /// <param name="japaneseName"></param>
+        /// <returns>Task of RomanizedNameOut</returns>
+        public async System.Threading.Tasks.Task<RomanizedNameOut> JapaneseNameMatchFeedbackLoopAsync (string japaneseSurnameLatin, string japaneseGivenNameLatin, string japaneseName)
+        {
+             ApiResponse<RomanizedNameOut> localVarResponse = await JapaneseNameMatchFeedbackLoopAsyncWithHttpInfo(japaneseSurnameLatin, japaneseGivenNameLatin, japaneseName);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// [CREDITS 1 UNIT] Feedback loop to better perform matching Japanese name in KANJI ex. 山本 早苗 with a romanized name ex. Yamamoto Sanae 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseSurnameLatin"></param>
+        /// <param name="japaneseGivenNameLatin"></param>
+        /// <param name="japaneseName"></param>
+        /// <returns>Task of ApiResponse (RomanizedNameOut)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<RomanizedNameOut>> JapaneseNameMatchFeedbackLoopAsyncWithHttpInfo (string japaneseSurnameLatin, string japaneseGivenNameLatin, string japaneseName)
+        {
+            // verify the required parameter 'japaneseSurnameLatin' is set
+            if (japaneseSurnameLatin == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseSurnameLatin' when calling JapaneseApi->JapaneseNameMatchFeedbackLoop");
+            // verify the required parameter 'japaneseGivenNameLatin' is set
+            if (japaneseGivenNameLatin == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseGivenNameLatin' when calling JapaneseApi->JapaneseNameMatchFeedbackLoop");
+            // verify the required parameter 'japaneseName' is set
+            if (japaneseName == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseName' when calling JapaneseApi->JapaneseNameMatchFeedbackLoop");
+
+            var localVarPath = "/api2/json/japaneseNameMatchFeedbackLoop/{japaneseSurnameLatin}/{japaneseGivenNameLatin}/{japaneseName}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (japaneseSurnameLatin != null) localVarPathParams.Add("japaneseSurnameLatin", this.Configuration.ApiClient.ParameterToString(japaneseSurnameLatin)); // path parameter
+            if (japaneseGivenNameLatin != null) localVarPathParams.Add("japaneseGivenNameLatin", this.Configuration.ApiClient.ParameterToString(japaneseGivenNameLatin)); // path parameter
+            if (japaneseName != null) localVarPathParams.Add("japaneseName", this.Configuration.ApiClient.ParameterToString(japaneseName)); // path parameter
+
+            // authentication (api_key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("JapaneseNameMatchFeedbackLoop", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<RomanizedNameOut>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (RomanizedNameOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RomanizedNameOut)));
+        }
+
+        /// <summary>
+        /// Infer the likely first/last name structure of a name, ex. 山本 早苗 or Yamamoto Sanae 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseName"></param>
+        /// <returns>PersonalNameParsedOut</returns>
+        public PersonalNameParsedOut ParseJapaneseName (string japaneseName)
+        {
+             ApiResponse<PersonalNameParsedOut> localVarResponse = ParseJapaneseNameWithHttpInfo(japaneseName);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Infer the likely first/last name structure of a name, ex. 山本 早苗 or Yamamoto Sanae 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseName"></param>
+        /// <returns>ApiResponse of PersonalNameParsedOut</returns>
+        public ApiResponse< PersonalNameParsedOut > ParseJapaneseNameWithHttpInfo (string japaneseName)
+        {
+            // verify the required parameter 'japaneseName' is set
+            if (japaneseName == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseName' when calling JapaneseApi->ParseJapaneseName");
+
+            var localVarPath = "/api2/json/parseJapaneseName/{japaneseName}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (japaneseName != null) localVarPathParams.Add("japaneseName", this.Configuration.ApiClient.ParameterToString(japaneseName)); // path parameter
+
+            // authentication (api_key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ParseJapaneseName", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2445,27 +2490,99 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
         }
 
         /// <summary>
-        /// Infer the likely first/last name structure of a name, ex. 王晓明 -&gt; 王(surname) 晓明(given name). 
+        /// Infer the likely first/last name structure of a name, ex. 山本 早苗 or Yamamoto Sanae 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseName"></param>
+        /// <returns>Task of PersonalNameParsedOut</returns>
+        public async System.Threading.Tasks.Task<PersonalNameParsedOut> ParseJapaneseNameAsync (string japaneseName)
+        {
+             ApiResponse<PersonalNameParsedOut> localVarResponse = await ParseJapaneseNameAsyncWithHttpInfo(japaneseName);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Infer the likely first/last name structure of a name, ex. 山本 早苗 or Yamamoto Sanae 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="japaneseName"></param>
+        /// <returns>Task of ApiResponse (PersonalNameParsedOut)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PersonalNameParsedOut>> ParseJapaneseNameAsyncWithHttpInfo (string japaneseName)
+        {
+            // verify the required parameter 'japaneseName' is set
+            if (japaneseName == null)
+                throw new ApiException(400, "Missing required parameter 'japaneseName' when calling JapaneseApi->ParseJapaneseName");
+
+            var localVarPath = "/api2/json/parseJapaneseName/{japaneseName}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (japaneseName != null) localVarPathParams.Add("japaneseName", this.Configuration.ApiClient.ParameterToString(japaneseName)); // path parameter
+
+            // authentication (api_key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ParseJapaneseName", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PersonalNameParsedOut>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PersonalNameParsedOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PersonalNameParsedOut)));
+        }
+
+        /// <summary>
+        /// Infer the likely first/last name structure of a name, ex. 山本 早苗 or Yamamoto Sanae  
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchPersonalNameIn">A list of personal names (optional)</param>
         /// <returns>BatchPersonalNameParsedOut</returns>
-        public BatchPersonalNameParsedOut ParseChineseNameBatch (BatchPersonalNameIn batchPersonalNameIn = null)
+        public BatchPersonalNameParsedOut ParseJapaneseNameBatch (BatchPersonalNameIn batchPersonalNameIn = null)
         {
-             ApiResponse<BatchPersonalNameParsedOut> localVarResponse = ParseChineseNameBatchWithHttpInfo(batchPersonalNameIn);
+             ApiResponse<BatchPersonalNameParsedOut> localVarResponse = ParseJapaneseNameBatchWithHttpInfo(batchPersonalNameIn);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Infer the likely first/last name structure of a name, ex. 王晓明 -&gt; 王(surname) 晓明(given name). 
+        /// Infer the likely first/last name structure of a name, ex. 山本 早苗 or Yamamoto Sanae  
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchPersonalNameIn">A list of personal names (optional)</param>
         /// <returns>ApiResponse of BatchPersonalNameParsedOut</returns>
-        public ApiResponse< BatchPersonalNameParsedOut > ParseChineseNameBatchWithHttpInfo (BatchPersonalNameIn batchPersonalNameIn = null)
+        public ApiResponse< BatchPersonalNameParsedOut > ParseJapaneseNameBatchWithHttpInfo (BatchPersonalNameIn batchPersonalNameIn = null)
         {
 
-            var localVarPath = "/api2/json/parseChineseNameBatch";
+            var localVarPath = "/api2/json/parseJapaneseNameBatch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2511,7 +2628,7 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ParseChineseNameBatch", localVarResponse);
+                Exception exception = ExceptionFactory("ParseJapaneseNameBatch", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2521,28 +2638,28 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
         }
 
         /// <summary>
-        /// Infer the likely first/last name structure of a name, ex. 王晓明 -&gt; 王(surname) 晓明(given name). 
+        /// Infer the likely first/last name structure of a name, ex. 山本 早苗 or Yamamoto Sanae  
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchPersonalNameIn">A list of personal names (optional)</param>
         /// <returns>Task of BatchPersonalNameParsedOut</returns>
-        public async System.Threading.Tasks.Task<BatchPersonalNameParsedOut> ParseChineseNameBatchAsync (BatchPersonalNameIn batchPersonalNameIn = null)
+        public async System.Threading.Tasks.Task<BatchPersonalNameParsedOut> ParseJapaneseNameBatchAsync (BatchPersonalNameIn batchPersonalNameIn = null)
         {
-             ApiResponse<BatchPersonalNameParsedOut> localVarResponse = await ParseChineseNameBatchAsyncWithHttpInfo(batchPersonalNameIn);
+             ApiResponse<BatchPersonalNameParsedOut> localVarResponse = await ParseJapaneseNameBatchAsyncWithHttpInfo(batchPersonalNameIn);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Infer the likely first/last name structure of a name, ex. 王晓明 -&gt; 王(surname) 晓明(given name). 
+        /// Infer the likely first/last name structure of a name, ex. 山本 早苗 or Yamamoto Sanae  
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchPersonalNameIn">A list of personal names (optional)</param>
         /// <returns>Task of ApiResponse (BatchPersonalNameParsedOut)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<BatchPersonalNameParsedOut>> ParseChineseNameBatchAsyncWithHttpInfo (BatchPersonalNameIn batchPersonalNameIn = null)
+        public async System.Threading.Tasks.Task<ApiResponse<BatchPersonalNameParsedOut>> ParseJapaneseNameBatchAsyncWithHttpInfo (BatchPersonalNameIn batchPersonalNameIn = null)
         {
 
-            var localVarPath = "/api2/json/parseChineseNameBatch";
+            var localVarPath = "/api2/json/parseJapaneseNameBatch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2588,303 +2705,7 @@ namespace Org.OpenAPITools.com.namsor.sdk2.api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ParseChineseNameBatch", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<BatchPersonalNameParsedOut>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (BatchPersonalNameParsedOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BatchPersonalNameParsedOut)));
-        }
-
-        /// <summary>
-        /// Romanize the Chinese name to Pinyin, ex. 王晓明 -&gt; Wang (surname) Xiaoming (given name) 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseName"></param>
-        /// <returns>PersonalNameParsedOut</returns>
-        public PersonalNameParsedOut PinyinChineseName (string chineseName)
-        {
-             ApiResponse<PersonalNameParsedOut> localVarResponse = PinyinChineseNameWithHttpInfo(chineseName);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Romanize the Chinese name to Pinyin, ex. 王晓明 -&gt; Wang (surname) Xiaoming (given name) 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseName"></param>
-        /// <returns>ApiResponse of PersonalNameParsedOut</returns>
-        public ApiResponse< PersonalNameParsedOut > PinyinChineseNameWithHttpInfo (string chineseName)
-        {
-            // verify the required parameter 'chineseName' is set
-            if (chineseName == null)
-                throw new ApiException(400, "Missing required parameter 'chineseName' when calling ChineseApi->PinyinChineseName");
-
-            var localVarPath = "/api2/json/pinyinChineseName/{chineseName}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (chineseName != null) localVarPathParams.Add("chineseName", this.Configuration.ApiClient.ParameterToString(chineseName)); // path parameter
-
-            // authentication (api_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
-            {
-                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("PinyinChineseName", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<PersonalNameParsedOut>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PersonalNameParsedOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PersonalNameParsedOut)));
-        }
-
-        /// <summary>
-        /// Romanize the Chinese name to Pinyin, ex. 王晓明 -&gt; Wang (surname) Xiaoming (given name) 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseName"></param>
-        /// <returns>Task of PersonalNameParsedOut</returns>
-        public async System.Threading.Tasks.Task<PersonalNameParsedOut> PinyinChineseNameAsync (string chineseName)
-        {
-             ApiResponse<PersonalNameParsedOut> localVarResponse = await PinyinChineseNameAsyncWithHttpInfo(chineseName);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Romanize the Chinese name to Pinyin, ex. 王晓明 -&gt; Wang (surname) Xiaoming (given name) 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chineseName"></param>
-        /// <returns>Task of ApiResponse (PersonalNameParsedOut)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PersonalNameParsedOut>> PinyinChineseNameAsyncWithHttpInfo (string chineseName)
-        {
-            // verify the required parameter 'chineseName' is set
-            if (chineseName == null)
-                throw new ApiException(400, "Missing required parameter 'chineseName' when calling ChineseApi->PinyinChineseName");
-
-            var localVarPath = "/api2/json/pinyinChineseName/{chineseName}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (chineseName != null) localVarPathParams.Add("chineseName", this.Configuration.ApiClient.ParameterToString(chineseName)); // path parameter
-
-            // authentication (api_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
-            {
-                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("PinyinChineseName", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<PersonalNameParsedOut>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PersonalNameParsedOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PersonalNameParsedOut)));
-        }
-
-        /// <summary>
-        /// Romanize a list of Chinese name to Pinyin, ex. 王晓明 -&gt; Wang (surname) Xiaoming (given name). 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchPersonalNameIn">A list of Chinese names (optional)</param>
-        /// <returns>BatchPersonalNameParsedOut</returns>
-        public BatchPersonalNameParsedOut PinyinChineseNameBatch (BatchPersonalNameIn batchPersonalNameIn = null)
-        {
-             ApiResponse<BatchPersonalNameParsedOut> localVarResponse = PinyinChineseNameBatchWithHttpInfo(batchPersonalNameIn);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Romanize a list of Chinese name to Pinyin, ex. 王晓明 -&gt; Wang (surname) Xiaoming (given name). 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchPersonalNameIn">A list of Chinese names (optional)</param>
-        /// <returns>ApiResponse of BatchPersonalNameParsedOut</returns>
-        public ApiResponse< BatchPersonalNameParsedOut > PinyinChineseNameBatchWithHttpInfo (BatchPersonalNameIn batchPersonalNameIn = null)
-        {
-
-            var localVarPath = "/api2/json/pinyinChineseNameBatch";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (batchPersonalNameIn != null && batchPersonalNameIn.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(batchPersonalNameIn); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = batchPersonalNameIn; // byte array
-            }
-
-            // authentication (api_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
-            {
-                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("PinyinChineseNameBatch", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<BatchPersonalNameParsedOut>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (BatchPersonalNameParsedOut) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BatchPersonalNameParsedOut)));
-        }
-
-        /// <summary>
-        /// Romanize a list of Chinese name to Pinyin, ex. 王晓明 -&gt; Wang (surname) Xiaoming (given name). 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchPersonalNameIn">A list of Chinese names (optional)</param>
-        /// <returns>Task of BatchPersonalNameParsedOut</returns>
-        public async System.Threading.Tasks.Task<BatchPersonalNameParsedOut> PinyinChineseNameBatchAsync (BatchPersonalNameIn batchPersonalNameIn = null)
-        {
-             ApiResponse<BatchPersonalNameParsedOut> localVarResponse = await PinyinChineseNameBatchAsyncWithHttpInfo(batchPersonalNameIn);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Romanize a list of Chinese name to Pinyin, ex. 王晓明 -&gt; Wang (surname) Xiaoming (given name). 
-        /// </summary>
-        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchPersonalNameIn">A list of Chinese names (optional)</param>
-        /// <returns>Task of ApiResponse (BatchPersonalNameParsedOut)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<BatchPersonalNameParsedOut>> PinyinChineseNameBatchAsyncWithHttpInfo (BatchPersonalNameIn batchPersonalNameIn = null)
-        {
-
-            var localVarPath = "/api2/json/pinyinChineseNameBatch";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (batchPersonalNameIn != null && batchPersonalNameIn.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(batchPersonalNameIn); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = batchPersonalNameIn; // byte array
-            }
-
-            // authentication (api_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
-            {
-                localVarHeaderParams["X-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-API-KEY");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("PinyinChineseNameBatch", localVarResponse);
+                Exception exception = ExceptionFactory("ParseJapaneseNameBatch", localVarResponse);
                 if (exception != null) throw exception;
             }
 
