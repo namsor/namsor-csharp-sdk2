@@ -10,8 +10,8 @@ Method | HTTP request | Description
 [**ApiUsage**](AdminApi.md#apiusage) | **GET** /api2/json/apiUsage | Print current API usage.
 [**ApiUsageHistory**](AdminApi.md#apiusagehistory) | **GET** /api2/json/apiUsageHistory | Print historical API usage.
 [**ApiUsageHistoryAggregate**](AdminApi.md#apiusagehistoryaggregate) | **GET** /api2/json/apiUsageHistoryAggregate | Print historical API usage (in an aggregated view, by service, by day/hour/min).
-[**AvailablePlans**](AdminApi.md#availableplans) | **GET** /api2/json/availablePlans | List all available plans in the default currency (usd).
-[**AvailablePlans1**](AdminApi.md#availableplans1) | **GET** /api2/json/availablePlans/{token} | List all available plans in the user&#39;s preferred currency.
+[**AvailablePlans**](AdminApi.md#availableplans) | **GET** /api2/json/availablePlans/{token} | List all available plans in the user&#39;s preferred currency.
+[**AvailablePlans1**](AdminApi.md#availableplans1) | **GET** /api2/json/availablePlans | List all available plans in the default currency (usd).
 [**AvailableServices**](AdminApi.md#availableservices) | **GET** /api2/json/apiServices | List of API services and usage cost in Units (default is 1&#x3D;ONE Unit).
 [**BillingCurrencies**](AdminApi.md#billingcurrencies) | **GET** /api2/json/billingCurrencies | List possible currency options for billing (USD, EUR, GBP, ...)
 [**BillingHistory**](AdminApi.md#billinghistory) | **GET** /api2/json/billingHistory/{token} | Read the history billing information (invoices paid via Stripe or manually).
@@ -25,8 +25,8 @@ Method | HTTP request | Description
 [**NamsorCounter**](AdminApi.md#namsorcounter) | **GET** /api2/json/namsorCounter | Get the overall API counter
 [**PaymentInfo**](AdminApi.md#paymentinfo) | **GET** /api2/json/paymentInfo/{token} | Get the Stripe payment information associated with the current google auth session token.
 [**ProcureKey**](AdminApi.md#procurekey) | **GET** /api2/json/procureKey/{token} | Procure an API Key (sent via Email), based on an auth token. Keep your API Key secret.
-[**RedeployUI**](AdminApi.md#redeployui) | **GET** /api2/json/redeployUI | Redeploy UI from current dev branch.
-[**RedeployUI1**](AdminApi.md#redeployui1) | **GET** /api2/json/redeployUI/{live} | Redeploy UI from current dev branch.
+[**RedeployUI**](AdminApi.md#redeployui) | **GET** /api2/json/redeployUI/{live} | Redeploy UI from current dev branch.
+[**RedeployUI1**](AdminApi.md#redeployui1) | **GET** /api2/json/redeployUI | Redeploy UI from current dev branch.
 [**RemoveUserAccount**](AdminApi.md#removeuseraccount) | **GET** /api2/json/removeUserAccount/{token} | Remove the user account.
 [**RemoveUserAccountOnBehalf**](AdminApi.md#removeuseraccountonbehalf) | **GET** /api2/json/removeUserAccountOnBehalf/{apiKey} | Remove (on behalf) a user account.
 [**Shutdown**](AdminApi.md#shutdown) | **GET** /api2/json/shutdown | Stop learning and shutdown system.
@@ -421,9 +421,9 @@ This endpoint does not need any parameter.
 
 <a name="availableplans"></a>
 # **AvailablePlans**
-> APIPlansOut AvailablePlans ()
+> APIPlansOut AvailablePlans (string token)
 
-List all available plans in the default currency (usd).
+List all available plans in the user's preferred currency.
 
 ### Example
 ```csharp
@@ -445,11 +445,12 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("X-API-KEY", "Bearer");
 
             var apiInstance = new AdminApi();
+            var token = token_example;  // string | 
 
             try
             {
-                // List all available plans in the default currency (usd).
-                APIPlansOut result = apiInstance.AvailablePlans();
+                // List all available plans in the user's preferred currency.
+                APIPlansOut result = apiInstance.AvailablePlans(token);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -462,7 +463,10 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **token** | **string**|  | 
 
 ### Return type
 
@@ -481,9 +485,9 @@ This endpoint does not need any parameter.
 
 <a name="availableplans1"></a>
 # **AvailablePlans1**
-> APIPlansOut AvailablePlans1 (string token)
+> APIPlansOut AvailablePlans1 ()
 
-List all available plans in the user's preferred currency.
+List all available plans in the default currency (usd).
 
 ### Example
 ```csharp
@@ -505,12 +509,11 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("X-API-KEY", "Bearer");
 
             var apiInstance = new AdminApi();
-            var token = token_example;  // string | 
 
             try
             {
-                // List all available plans in the user's preferred currency.
-                APIPlansOut result = apiInstance.AvailablePlans1(token);
+                // List all available plans in the default currency (usd).
+                APIPlansOut result = apiInstance.AvailablePlans1();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -523,10 +526,7 @@ namespace Example
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **token** | **string**|  | 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -1358,7 +1358,7 @@ Name | Type | Description  | Notes
 
 <a name="redeployui"></a>
 # **RedeployUI**
-> void RedeployUI ()
+> void RedeployUI (bool? live)
 
 Redeploy UI from current dev branch.
 
@@ -1382,11 +1382,12 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("X-API-KEY", "Bearer");
 
             var apiInstance = new AdminApi();
+            var live = true;  // bool? | 
 
             try
             {
                 // Redeploy UI from current dev branch.
-                apiInstance.RedeployUI();
+                apiInstance.RedeployUI(live);
             }
             catch (Exception e)
             {
@@ -1398,7 +1399,10 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **live** | **bool?**|  | 
 
 ### Return type
 
@@ -1417,7 +1421,7 @@ void (empty response body)
 
 <a name="redeployui1"></a>
 # **RedeployUI1**
-> void RedeployUI1 (bool? live)
+> void RedeployUI1 ()
 
 Redeploy UI from current dev branch.
 
@@ -1441,12 +1445,11 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("X-API-KEY", "Bearer");
 
             var apiInstance = new AdminApi();
-            var live = true;  // bool? | 
 
             try
             {
                 // Redeploy UI from current dev branch.
-                apiInstance.RedeployUI1(live);
+                apiInstance.RedeployUI1();
             }
             catch (Exception e)
             {
@@ -1458,10 +1461,7 @@ namespace Example
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **live** | **bool?**|  | 
+This endpoint does not need any parameter.
 
 ### Return type
 
